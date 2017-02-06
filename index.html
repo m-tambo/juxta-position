@@ -7,15 +7,13 @@
   <link rel="stylesheet" href="/lib/materialize/dist/css/materialize.min.css">
 </head>
 <body>
+  <div>
+    <div ng-app="juxtaPosition">
 
-  <div ng-app="juxtaPosition">
-
-    <div ng-view>
+      <div ng-view></div>
 
     </div>
-
   </div>
-
 
 
       <!-- ______dependency script tags_______ -->
@@ -26,10 +24,10 @@
   <script src="/lib/materialize/dist/js/materialize.min.js"></script>
 
       <!-- ______app script tags_______ -->
-  <script src=""></script>
-  <script src=""></script>
-  <script src=""></script>
-  <script src=""></script>
+  <script src="/app/factories/authFactory.js"></script>
+  <script src="/app/factories/apiFactory.js"></script>
+  <script src="/app/factories/firebaseFactory.js"></script>
+  <script src="/app/controllers/mainCtrl.js"></script>
   <script src="/app/app.js"></script>
 
 </body>
