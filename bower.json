@@ -1,0 +1,23 @@
+{
+  "name": "juxta-position",
+  "homepage": "https://github.com/m-tambo/juxta-position",
+  "authors": [
+    "Michael Tambornino <michael.tambornino@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.6.1",
+    "angular-route": "^1.6.1",
+    "firebase": "^3.6.8",
+    "materialize": "^0.98.0"
+  }
+}
