@@ -4,14 +4,29 @@ app
     let getPlayers = function () {
       console.log('ready for api call')
       return $http
-        .get('http://www.fantasyfootballnerd.com/service/players/json/iz33m4ducg4h​/')
+        .get('playerList.json')
         .then((res) => {
-          console.log(res)
+          console.log(res.data)
         })
 
     }
-
+    let getNerdProjections = function () {
+      return $http
+        .get('https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h​/QB/11/')
+        .then((res) => {
+          console.log(res)
+        })
+    }
+    let getNflLeaders = function () {
+      return $http
+        .get('http://api.fantasy.nfl.com/v1/players/scoringleaders?&count=30&season=2016&position=RB&format=json')
+        .then((res) => {
+          console.log(res.data)
+        })
+    }
     return {
-      getPlayers
+      getPlayers,
+      getNerdProjections,
+      getNflLeaders
     }
   })
