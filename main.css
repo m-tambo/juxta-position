@@ -3,9 +3,18 @@
 ************/
 
 .main-header {
-  margin-top: -4%;
+  margin-top: -8%;
+  margin-left: 50%;
 }
 
+/* label color */
+
+
+/* label underline focus color */
+.input-field input[type=email]:focus {
+  border-bottom: 1px solid orange;
+  box-shadow: 0 1px 0 0 orange;
+}
 
 
 /* icon styling */
