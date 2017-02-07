@@ -1,5 +1,7 @@
 app
-  .controller('mainCtrl', function() {
+  .controller('mainCtrl', function(apiFactory) {
+
+    apiFactory.getPlayers()
 
 
   })
