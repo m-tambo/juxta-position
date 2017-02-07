@@ -4,6 +4,10 @@ dir
   .directive('navbar', function() {
     return {
       restrict: "E",
-      templateUrl: "/app/partials/navbar.html"
+      templateUrl: "/app/partials/navbar.html",
+      controller: function() {
+        $(".button-collapse").sideNav();
+      }
     };
+
   });
