@@ -11,3 +11,5 @@ Simply start typing the names of the two players in question. juxta will immedia
 
 
 ### Trello board: https://trello.com/b/TXwSxNKR/juxta-front-end-crapstone
+
+### Moqup: https://app.moqups.com/m-tambo/QjhjtpG1OF/view
