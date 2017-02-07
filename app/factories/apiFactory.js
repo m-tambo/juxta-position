@@ -4,9 +4,9 @@ app
     let getPlayers = function () {
       console.log('ready for api call')
       return $http
-        .get('playerList.json')
+        .get('nerdPlayerList.json')
         .then((res) => {
-          console.log(res.data)
+          // console.log(res.data)
         })
 
     }
@@ -14,7 +14,7 @@ app
       return $http
         .get('https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h​/QB/11/')
         .then((res) => {
-          console.log(res)
+          console.log(res.data)
         })
     }
     let getNflLeaders = function () {
