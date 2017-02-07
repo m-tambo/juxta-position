@@ -1,5 +1,7 @@
 const app = angular
-  .module('juxtaPosition', ['ngRoute'])
+
+  .module('juxtaPosition', ['ngRoute', 'directives'])
+
   .config(($routeProvider) => {
 
     firebase.initializeApp({
@@ -16,6 +18,6 @@ const app = angular
         templateUrl: "/app/partials/main.html",
         // resolve:
 
-      })
+      });
 
-  })
+  });

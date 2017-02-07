@@ -7,8 +7,12 @@
   <link rel="stylesheet" href="/lib/materialize/dist/css/materialize.min.css">
 </head>
 <body>
+
   <div>
+
     <div ng-app="juxtaPosition">
+
+      <navbar></navbar>
 
       <div ng-view></div>
 
@@ -24,6 +28,7 @@
   <script src="/lib/materialize/dist/js/materialize.min.js"></script>
 
       <!-- ______app script tags_______ -->
+  <script src="/app/modules/directives.js"></script>
   <script src="/app/factories/authFactory.js"></script>
   <script src="/app/factories/apiFactory.js"></script>
   <script src="/app/factories/firebaseFactory.js"></script>
