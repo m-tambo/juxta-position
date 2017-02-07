@@ -1,7 +1,6 @@
-const app = angular
+const app = angular.module('juxtaPosition', ['ngRoute', 'directives'])
 
-  .module('juxtaPosition', ['ngRoute', 'directives'])
-
+app
   .config(($routeProvider) => {
 
     firebase.initializeApp({
@@ -13,11 +12,20 @@ const app = angular
     });
 
     $routeProvider
-      .when('/', {
+      .when('/main', {
         controller: "mainCtrl",
         templateUrl: "/app/partials/main.html",
         // resolve:
 
-      });
+      })
+      .when('/user', {
+        controller: "userCtrl",
+        templateUrl: "/app/partials/user.html",
+        // resolve:
+
+      })
+      .otherwise({
+        redirectTo: "/main"
+      })
 
   });

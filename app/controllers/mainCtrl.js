@@ -1,6 +1,5 @@
 app
-  .controller('mainCtrl', function($scope, apiFactory) {
+  .controller('mainCtrl', function() {
 
-    $scope
 
   })
