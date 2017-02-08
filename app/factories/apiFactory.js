@@ -2,7 +2,6 @@ app
   .factory('apiFactory', function($http) {
 
     let getPlayers = function () {
-      console.log('ready for api call')
       return $http
         .get('nflPlayerList.json')
         .then((res) => {
