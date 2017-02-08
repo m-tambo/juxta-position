@@ -1,8 +1,8 @@
-<h3 class="main-header center-align"><em>___juxtaPosition___</em></h3>
+<h3 class="main-header center-align" hidden><em>___juxtaPosition___</em></h3>
 
 <div class="container">
 
-  <div class="player-search row center-align">
+  <form class="player-search row center-align" ng-submit="juxtaPose()">
     <div class="input-field">
       <!-- <i class="material-icons">input</i> -->
       <input class="col s4 offset-s1 input-1" placeholder="Player X" ng-model="inputx">
@@ -11,15 +11,46 @@
       <!-- <i class="material-icons">input</i> -->
       <input class="col s4 offset-s2 input-2" placeholder="Player Y" ng-model="inputy">
     </div>
-  </div>
 
-  <div class="juxta-btn center-align" ng-hide="1 !== 1">
-    <button class="btn waves-effect waves-light" type="submit" ng-click="juxtaPose()">juxtaPose</button>
-  </div>
+    <div class="juxta-btn center-align" ng-hide="1 !== 1">
+      <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
+    </div>
+  </form>
 
-  <div class='player-versus'>
-    <div >
+  <div class='player-versus' hidden>
 
+      <!-- _____ player X card _____ -->
+    <div class="player-x-display">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{playerX.player.FirstName}} {{playerX.player.LastName}}<i class="material-icons right">more_vert  </i></span>
+            <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+      </div>
+    </div>
+
+      <!-- _____ player Y card _____ -->
+    <div class="player-x-display">
+      <div class="card">
+        <div class="card-image waves-effect waves-block waves-light">
+          <img class="activator" src="images/office.jpg">
+        </div>
+        <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">{{playerY.player.FirstName}} {{playerY.player.LastName}}<i class="material-icons right">more_vert  </i></span>
+            <p><a href="#">This is a link</a></p>
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+        </div>
+      </div>
     </div>
 
   </div>

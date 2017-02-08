@@ -12,7 +12,7 @@
 
 
 /* label underline focus color */
-.input-field input[type=email]:focus {
+.input-1:focus {
   border-bottom: 1px solid orange;
   box-shadow: 0 1px 0 0 orange;
 }
