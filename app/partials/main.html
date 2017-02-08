@@ -2,7 +2,7 @@
 
 <div class="container">
 
-  <form class="player-search row center-align" ng-submit="juxtaPose()">
+  <form class="player-search row center-align">
     <div class="input-field">
       <!-- <i class="material-icons">input</i> -->
       <input class="col s4 offset-s1 input-x autocomplete" placeholder="Player X" ng-model="inputx">
@@ -11,23 +11,24 @@
       <!-- <i class="material-icons">input</i> -->
       <input class="col s4 offset-s2 input-y autocomplete" placeholder="Player Y" ng-model="inputy">
     </div>
-
-    <div class="juxta-btn center-align" ng-hide="1 !== 1">
-      <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
-    </div>
   </form>
 
-  <div class='player-versus' hidden>
+    <div class="juxta-btn center-align" ng-click="juxtaPose()" ng-hide="1 !== 1">
+      <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
+    </div>
+
+  <div class='player-versus row' hidden>
 
       <!-- _____ player X card _____ -->
     <div class="player-x-display">
-      <div class="card">
+      <div class="card col s5">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" src="images/office.jpg">
         </div>
         <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{playerX.player.FirstName}} {{playerX.player.LastName}}<i class="material-icons right">more_vert</i></span>
-            <p><a href="#">This is a link</a></p>
+            <span class="card-title activator grey-text text-darken-2">{{playerX.player.FirstName}} {{playerX.player.LastName}}<i class="material-icons right">more_vert</i></span>
+            <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
+              <!-- <p><a href="#">This is a link</a></p> -->
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
@@ -37,14 +38,15 @@
     </div>
 
       <!-- _____ player Y card _____ -->
-    <div class="player-x-display">
-      <div class="card">
+    <div class="player-y-display">
+      <div class="card col s5 offset-s1">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" src="images/office.jpg">
         </div>
         <div class="card-content">
-            <span class="card-title activator grey-text text-darken-4">{{playerY.player.FirstName}} {{playerY.player.LastName}}<i class="material-icons right">more_vert</i></span>
-            <p><a href="#">This is a link</a></p>
+            <span class="card-title activator grey-text text-darken-2">{{playerY.player.FirstName}} {{playerY.player.LastName}}<i class="material-icons right">more_vert</i></span>
+            <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
+              <!-- <p><a href="#">This is a link</a></p> -->
         </div>
         <div class="card-reveal">
             <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>

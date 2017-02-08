@@ -9,18 +9,16 @@ app
       let name = ($scope.playerList[j].player.FirstName + " " + $scope.playerList[j].player.LastName)
       $scope.playerNames[name] = null
     }
-    console.log($scope.playerNames)
 
   // ____ auto-complete function ____
     $('input.autocomplete').autocomplete({
       data: $scope.playerNames,  // list of player names
-      limit: 8, // max amount of results
+      limit: 5,  // max amount of results
     });
 
     $scope.juxtaPose = function() {
-      $scope.inputx = document.querySelector('.input-x').value
-      $scope.inputy = document.querySelector('.input-y').value
-      console.log($scope.inputx, $scope.inputy)
+      $scope.inputx = document.querySelector('.input-x').value  // capture the autocomplete values
+      $scope.inputy = document.querySelector('.input-y').value  // capture the autocomplete values
 
     // ____ find player X ____
       for (let i = 0; i < $scope.playerList.length; i++) {
@@ -43,7 +41,6 @@ app
     }
 
     $scope.showPlayers = function () {
-      console.log($scope.playerX, $scope.playerY)
       if ($scope.playerX === undefined || $scope.playerY === undefined) {
         alert("To see comparison, enter two valid Player names")
       }
@@ -51,6 +48,7 @@ app
         document.querySelector('.player-versus').removeAttribute('hidden')
       }
     }
+
 
     // apiFactory.getNerdProjections()
     // apiFactory.getNflLeaders()

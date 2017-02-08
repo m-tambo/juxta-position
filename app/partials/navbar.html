@@ -3,19 +3,20 @@
   <div class="background">
     <img src="">
   </div>
-  <li>
+  <li ng-if="currentUser !== undefined">
     <div class="userView">
       <a href="#!user"><img class="circle" src=""></a>
       <a href="#!name"><span class="white-text name">currentUser.name</span></a>
       <a href="#!email"><span class="white-text email">currentUser.email</span></a>
     </div>
   </li>
-  <li><a class="waves-effect" href="#"><i class="material-icons">home</i>Home</a></li>
-  <li><a href="#!">Second Link</a></li>
+  <li><a class="waves-effect" href="#"><i class="material-icons">home</i>JuxtaPosition</a></li>
+  <li ng-if="currentUser === undefined"><a href="#!">Login</a></li>
+  <li ng-if="currentUser === undefined"><a href="#!">Register new account</a></li>
   <li>
     <div class="divider"></div>
   </li>
   <!-- <li><a class="subheader">Subheader</a></li> -->
-  <li><a class="waves-effect" href="#!">Logout</a></li>
+  <li ng-if="currentUser !== undefined"><a class="waves-effect" href="#!">Logout</a></li>
 </ul>
 <a href="#" data-activates="slide-out" class="button-collapse"><i class="large material-icons">view_headline</i></a>
