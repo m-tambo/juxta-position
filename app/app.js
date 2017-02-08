@@ -15,7 +15,11 @@ app
       .when('/main', {
         controller: "mainCtrl",
         templateUrl: "/app/partials/main.html",
-        // resolve:
+        resolve: {
+          players: function (apiFactory) {
+            return apiFactory.getPlayers()
+          }
+        }
 
       })
       .when('/user', {
