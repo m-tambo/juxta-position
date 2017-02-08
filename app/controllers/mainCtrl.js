@@ -4,23 +4,23 @@ app
     $scope.playerList = players;
     console.log(players)
 
+    $scope.playerNames = {}
+    for (let j = 0; j < players.length; j++) {
+      let name = ($scope.playerList[j].player.FirstName + " " + $scope.playerList[j].player.LastName)
+      $scope.playerNames[name] = null
+    }
+    console.log($scope.playerNames)
+
   // ____ auto-complete function ____
-    $(function () {
-        var single = $('.input-1').materialize_autocomplete({
-            multiple: {
-                enable: false
-            },
-            dropdown: {
-                el: '#singleDropdown',
-                itemTemplate: '<li class="ac-item" data-id="<%= item.id %>" data-text=\'<%= item.text %>\'><a href="javascript:void(0)"><%= item.highlight %></a></li>'
-            },
-            onSelect: function (item) {
-                console.log(item.text + ' was selected');
-            }
-        });
+    $('input.autocomplete').autocomplete({
+      data: $scope.playerNames,  // list of player names
+      limit: 8, // max amount of results
     });
 
     $scope.juxtaPose = function() {
+      $scope.inputx = document.querySelector('.input-x').value
+      $scope.inputy = document.querySelector('.input-y').value
+      console.log($scope.inputx, $scope.inputy)
 
     // ____ find player X ____
       for (let i = 0; i < $scope.playerList.length; i++) {
@@ -43,6 +43,7 @@ app
     }
 
     $scope.showPlayers = function () {
+      console.log($scope.playerX, $scope.playerY)
       if ($scope.playerX === undefined || $scope.playerY === undefined) {
         alert("To see comparison, enter two valid Player names")
       }
