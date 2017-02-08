@@ -1,5 +1,5 @@
 app
-  .controller('mainCtrl', function(players, $scope) {
+  .controller('mainCtrl', function(players, $scope, apiFactory) {
 
     $scope.playerList = players;
     console.log(players)
@@ -15,6 +15,7 @@ app
       data: $scope.playerNames,  // list of player names
       limit: 5,  // max amount of results
     });
+
 
     $scope.juxtaPose = function() {
       $scope.inputx = document.querySelector('.input-x').value  // capture the autocomplete values
@@ -35,6 +36,20 @@ app
           console.log('player y:', $scope.playerY.player)
         }
       }
+
+      apiFactory.getNerdProjections($scope.playerX.player.Position, 7)
+        .then((projections) => {
+          for (i = 0; i < projections.length; i++) {
+            if (projections[i].displayName === ($scope.playerX.player.FirstName + " " + $scope.playerX.player.LastName)) {
+              console.log(projections[i])
+            }
+          }
+        })
+
+      // firebaseFactory.getNerdProjections($scope.playerY.player.Position, 7)
+      //   .then((projections) => {
+      //     console.log(projections)
+      //   })
 
       $scope.showPlayers()
 

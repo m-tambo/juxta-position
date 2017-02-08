@@ -10,11 +10,13 @@ app
 
     };
 
-    let getNerdProjections = function () {
+    let getNerdProjections = function (pos, wk) {
       return $http
-        .get('https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h​/QB/11/')
+        .get(`projectionsQBwk1.json`)
+        // .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${pos}/${wk}/`)
         .then((res) => {
-          console.log(res.data)
+          console.log(res.data.Projections)
+          return res.data.Projections
         })
     };
 
@@ -23,6 +25,7 @@ app
         .get('http://api.fantasy.nfl.com/v1/players/scoringleaders?&count=30&season=2016&position=RB&format=json')
         .then((res) => {
           console.log(res.data)
+          return res.data
         })
     };
 
