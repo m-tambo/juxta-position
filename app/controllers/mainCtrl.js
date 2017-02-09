@@ -21,27 +21,24 @@ app
       $scope.inputx = document.querySelector('.input-x').value  // capture the autocomplete values
       $scope.inputy = document.querySelector('.input-y').value  // capture the autocomplete values
 
-      $scope.setPlayers();
+      $scope.setPlayers('inputx', 'playerX');
+      $scope.setPlayers('inputy', 'playerY');
+
       $scope.showPlayers();
-      $scope.showProjections($scope.playerX.player, $scope.projectionX);  // find playerX projections
-      $scope.showProjections($scope.playerY.player, $scope.projectionY);  // find playerX projections
+
+      $scope.showProjections($scope.playerX.player, 'projectionsX');  // find playerX projections, set obj to var
+      $scope.showProjections($scope.playerY.player, 'projectionsY');  // find playerY projections, set obj to var
+
 
     }
 
 
-    $scope.setPlayers = function () {
-    // ____ find player X in playerList ____
+    $scope.setPlayers = function (input, output) {
+    // ____ find input player in playerList, set player object to output ____
       for (let i = 0; i < $scope.playerList.length; i++) {
-        if ($scope.inputx === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
-          $scope.playerX = $scope.playerList[i]
-          console.log('player x:', $scope.playerX.player)
-        }
-      }
-    //____ find player Y in playerList ____
-      for (let i = 0; i < $scope.playerList.length; i++) {
-        if ($scope.inputy === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
-          $scope.playerY = $scope.playerList[i]
-          console.log('player y:', $scope.playerY.player)
+        if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
+          $scope[output] = $scope.playerList[i]
+          console.log('player:', $scope[output]['player'])
         }
       }
     }
@@ -62,8 +59,8 @@ app
         .then((projections) => {
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === (guy.FirstName + " " + guy.LastName)) {
-              letter = projections[i]
-              console.log(letter)
+              $scope[letter] = projections[i]
+              console.log($scope[letter])
             }
           }
         })

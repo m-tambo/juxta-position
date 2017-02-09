@@ -15,7 +15,6 @@ app
         .get(`projectionsQBwk1.json`)
         // .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${pos}/${wk}/`)
         .then((res) => {
-          console.log(res.data.Projections)
           return res.data.Projections
         })
     };
