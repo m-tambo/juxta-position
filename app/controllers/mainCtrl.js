@@ -55,7 +55,7 @@ app
 
 
     $scope.showProjections = function (guy, letter) {
-      apiFactory.getNerdProjections()  // ($scope.playerX.player.Position, 7)
+      apiFactory.getNerdProjections()  // (guy.Position, [week#])
         .then((projections) => {
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === (guy.FirstName + " " + guy.LastName)) {
@@ -66,7 +66,8 @@ app
         })
     }
 
-    // apiFactory.getNerdProjections()
-    // apiFactory.getNflLeaders()
+    $scope.showRankings = function () {
+      apiFactory.getNerdRankings()
+    }
 
   })

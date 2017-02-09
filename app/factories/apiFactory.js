@@ -3,7 +3,7 @@ app
 
     let getPlayers = function () {
       return $http
-        .get('nflPlayerList.json')
+        .get('/data/nflPlayerList.json')
         .then((res) => {
           return res.data.playerentry
         })
@@ -12,10 +12,20 @@ app
 
     let getNerdProjections = function () {
       return $http
-        .get(`projectionsQBwk1.json`)
+        .get(`/data/projectionsQBwk1.json`)
         // .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${pos}/${wk}/`)
         .then((res) => {
           return res.data.Projections
+        })
+    };
+
+    let getNerdRankings = function () {
+      return $http
+        .get(`/data/rankingsWRweek2.json`)
+        // .get(`https://www.fantasyfootballnerd.com/service/weekly-rankings/json/iz33m4ducg4h/WR/${wk}/1/`)
+        .then((res) => {
+          console.log(res.data)
+          return res.data
         })
     };
 
@@ -31,6 +41,7 @@ app
     return {
       getPlayers,
       getNerdProjections,
+      getNerdRankings
       getNflLeaders
     }
   })
