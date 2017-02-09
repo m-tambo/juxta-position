@@ -10,7 +10,7 @@ app
 
     };
 
-    let getNerdProjections = function (pos, wk) {
+    let getNerdProjections = function () {
       return $http
         .get(`projectionsQBwk1.json`)
         // .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${pos}/${wk}/`)
