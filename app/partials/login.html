@@ -2,22 +2,44 @@
   <a href="#"><h3 class="main-header"><em><strong>Juxta Position</strong></em></h3></a>
 </div>
 
- <div class="row">
-    <form class="col s12">
+      <!-- _____ login form _____ -->
+  <div class="login row container">
+    <h3>Login</h3>
+    <form class="col s12" ng-submit="loginUser()">
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First Name</label>
+          <input id="login-email" type="email" class="validate">
+          <label for="login-email">Email</label>
         </div>
         <div class="input-field col s6">
-          <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate">
-          <label for="icon_telephone">Telephone</label>
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="login-pass" type="password" class="validate">
+          <label for="login-pass">Password</label>
+        </div>
+      </div>
+    </form>
+    <button class="waves-effect waves-light btn" ng-click="goToRegister()">Register new User</button>
+  </div>
+
+       <!-- _____ register form _____ -->
+  <div class="register row container" hidden>
+    <h3>Register</h3>
+    <form class="col s12" ng-submit="registerUser()">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="register-email" type="email" class="validate">
+          <label for="register-email">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="register-pass" type="password" class="validate">
+          <label for="register-pass">Password</label>
         </div>
       </div>
     </form>
   </div>
-
-<div class="login-image">
+     <!-- _____ login image _____ -->
+<div class="login-image" hidden>
 </div>
