@@ -3,6 +3,7 @@
 </div>
 
 <div>
+      <!-- choose two players -->
   <div class="player-search">
     <form class="row center-align">
       <div class="input-field">
@@ -11,12 +12,15 @@
       <div class="input-field">
         <input class="col s4 offset-s2 input-y autocomplete" placeholder="Player Y" ng-model="inputy">
       </div>
-      <select class="center-align" ng-repeat="week in weeks">
-        <option>this</option>
-        <option>{{week}}</option>
-      </select>
+        <!-- select week -->
+      <div class="col s4 offset-s4">
+        <label for="repeatSelect"> Select: </label>
+         <select name="repeatSelect" id="repeatSelect" ng-model="weeks.model">
+          <option ng-repeat="option in weeks.availableOptions" value="{{option.id}}">{{option.name}}</option>
+        </select>
+      </div>
         <!-- juxtaPose button -->
-      <div class="juxta-btn center-align" ng-click="juxtaPose()">
+      <div class="juxta-btn center-align col s4 offset-s4" ng-click="juxtaPose()">
         <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
       </div>
     </form>
