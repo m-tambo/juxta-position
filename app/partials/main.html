@@ -1,25 +1,26 @@
 <div class="head-image" hidden>
-  <h3 class="main-header"><em><strong>Juxta Position</strong></em></h3>
+  <a href="#"><h3 class="main-header"><em><strong>Juxta Position</strong></em></h3></a>
 </div>
 
 <div>
-
-  <form class="player-search row center-align">
-    <div class="input-field">
-      <input class="col s4 offset-s1 input-x autocomplete" placeholder="Player X" ng-model="inputx">
-    </div>
-    <div class="input-field">
-      <input class="col s4 offset-s2 input-y autocomplete" placeholder="Player Y" ng-model="inputy">
-    </div>
-  </form>
-    <select class="center-align" ng-repeat="week in weeks">
-      <option>this</option>
-      <option>{{week}}</option>
-    </select>
-      <!-- juxtaPose button -->
-    <div class="juxta-btn center-align" ng-click="juxtaPose()">
-      <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
-    </div>
+  <div class="player-search">
+    <form class="row center-align">
+      <div class="input-field">
+        <input class="col s4 offset-s1 input-x autocomplete" placeholder="Player X" ng-model="inputx">
+      </div>
+      <div class="input-field">
+        <input class="col s4 offset-s2 input-y autocomplete" placeholder="Player Y" ng-model="inputy">
+      </div>
+      <select class="center-align" ng-repeat="week in weeks">
+        <option>this</option>
+        <option>{{week}}</option>
+      </select>
+        <!-- juxtaPose button -->
+      <div class="juxta-btn center-align" ng-click="juxtaPose()">
+        <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
+      </div>
+    </form>
+  </div>
 
   <div>
 
@@ -90,7 +91,7 @@
           <tr>
             <td>Expert ranking:</td>
             <td ng-if="positionXrank < positionYrank"><i class="material-icons">done</i></td>
-            <td ng-if="positionYrank < positionXrank"><i class="material-icons">done</i></td>
+            <td ng-if="positionXrank > positionYrank"><i class="material-icons">done</i></td>
           </tr>
         </tbody>
       </table>

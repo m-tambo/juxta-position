@@ -25,6 +25,7 @@ app
       $scope.setPlayers('inputx', 'playerX');
       $scope.setPlayers('inputy', 'playerY');
 
+      $scope.showData();
 
       $scope.showProjections($scope.playerX.player, 'projectionsX');  // find playerX projections, set obj to var
       $scope.showProjections($scope.playerY.player, 'projectionsY');  // find playerY projections, set obj to var
@@ -33,9 +34,6 @@ app
       $scope.showRankings($scope.playerY.player, 'rankingsY', 'positionYrank')
 
       // $scope.showStats()
-
-      $scope.showData();
-
     }
 
 
@@ -57,6 +55,7 @@ app
       else {
         document.querySelector('.player-versus').removeAttribute('hidden')
         document.querySelector('.table').removeAttribute('hidden')
+        document.querySelector('.player-search').setAttribute('hidden', 'hidden')
       }
     }
 
