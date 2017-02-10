@@ -1,5 +1,5 @@
 app
-  .controller('loginCtrl', function($scope, authFactory) {
+  .controller('loginCtrl', function($scope, authFactory, $location) {
 
     $scope.goToRegister = function () {
       document.querySelector('.login').setAttribute('hidden', 'hidden')
@@ -7,10 +7,16 @@ app
     };
 
     $scope.loginUser = function () {
-      authFactory
+      authFactory.login($scope.loginEmail, $scope.loginPass)
+        .then(() => {
+          $location.path('/')
+        })
     };
 
     $scope.registerUser = function () {
-      authFactory
+      authFactory.register($scope.registerEmail, $scope.registerPass)
+        .then(() => {
+          $location.path('/')
+        })
     }
 })

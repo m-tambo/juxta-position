@@ -1,14 +1,33 @@
 app
   .factory('authFactory', function($q) {
+    let currentUser = undefined
+
     return {
 
       login (email, pass) {
-        // converts native ES6 promise to angular promise so no $scope.$apply needed
+        // converts promise to angular promise so no $scope.$apply needed
         return $q.resolve(firebase.auth().signInWithEmailAndPassword(email, pass))
       },
 
       register (email, pass) {
-        return $q.resolve(firebase.auth().registerNewUser)
+        return $q
+          .resolve(firebase.auth().createUserWithEmailAndPassword(email, pass))
+          .catch(function(error) {
+            var errorCode = error.code;
+            var errorMessage = error.message;
+          })
+          .then(() => {
+            return email
+            console.log(email)
+          })
+      },
+
+      logout () {
+        firebase.auth().signOut().then(function() {
+          // Sign-out successful.
+        }, function(error) {
+          // An error happened.
+        });
       },
 
       getUser () {
@@ -23,14 +42,6 @@ app
             }
           })
         })
-      },
-
-      logout () {
-        firebase.auth().signOut().then(function() {
-          // Sign-out successful.
-        }, function(error) {
-          // An error happened.
-        });
       }
 
     }
