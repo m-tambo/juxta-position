@@ -24,10 +24,19 @@ app
         .get(`/data/rankingsWRweek2.json`)
         // .get(`https://www.fantasyfootballnerd.com/service/weekly-rankings/json/iz33m4ducg4h/WR/${wk}/1/`)
         .then((res) => {
-          console.log(res.data)
-          return res.data
+          return res.data.Rankings
         })
     };
+
+    let getNflStats = function () {
+      return $http
+        .get(`/data/nflWeek4stats.json`)
+        // .get(`http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016&week=4&format=json`)
+        .then((res) => {
+          console.log(res)
+          return res
+        })
+      };
 
     let getNflLeaders = function () {
       return $http
@@ -41,7 +50,8 @@ app
     return {
       getPlayers,
       getNerdProjections,
-      getNerdRankings
+      getNerdRankings,
+      getNflStats,
       getNflLeaders
     }
   })
