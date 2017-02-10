@@ -5,7 +5,7 @@
       <!-- _____ login form _____ -->
   <div class="login row container">
     <h3>Login</h3>
-    <form class="col s12" ng-submit="loginUser()">
+    <form class="col s12">
       <div class="row">
         <div class="input-field col s6">
           <i class="material-icons prefix">account_circle</i>
@@ -17,9 +17,15 @@
           <input id="login-pass" type="password" class="validate">
           <label for="login-pass">Password</label>
         </div>
+        <div class="center">
+          <button class="btn small" type="submit" ng-click="loginUser()">Login</button>
+        </div>
       </div>
     </form>
-    <button class="waves-effect waves-light btn" ng-click="goToRegister()">Register new User</button>
+    <div class="right">
+      <h5 class="small">Don't have an account?</h5>
+      <button class="waves-effect waves-light btn center" ng-click="goToRegister()">Register</button>
+    </div>
   </div>
 
        <!-- _____ register form _____ -->
@@ -36,6 +42,9 @@
           <i class="material-icons prefix">vpn_key</i>
           <input id="register-pass" type="password" class="validate">
           <label for="register-pass">Password</label>
+        </div>
+        <div class="center">
+          <button class="btn small" type="submit" ng-click="registerUser()">Register</button>
         </div>
       </div>
     </form>
