@@ -2,24 +2,31 @@
   <h3 class="main-header"><em><strong>Juxta Position</strong></em></h3>
 </div>
 
-<div class="container">
+<div>
 
   <form class="player-search row center-align">
     <div class="input-field">
-      <!-- <i class="material-icons">input</i> -->
       <input class="col s4 offset-s1 input-x autocomplete" placeholder="Player X" ng-model="inputx">
     </div>
     <div class="input-field">
-      <!-- <i class="material-icons">input</i> -->
       <input class="col s4 offset-s2 input-y autocomplete" placeholder="Player Y" ng-model="inputy">
     </div>
   </form>
-
+    <select class="center-align" ng-repeat="week in weeks">
+      <option>this</option>
+      <option>{{week}}</option>
+    </select>
+      <!-- juxtaPose button -->
     <div class="juxta-btn center-align" ng-click="juxtaPose()">
       <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
     </div>
 
-  <div class='player-versus row' hidden>
+  <div>
+
+  </div>
+
+
+  <div class='player-versus row container' hidden>
 
       <!-- _____ player X card _____ -->
     <div class="player-x-display">
@@ -33,7 +40,7 @@
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
         <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <span class="card-title grey-text text-darken-4">Position Rank: {{positionXrank}}<i class="material-icons right">close</i></span>
             <p>Here is some more information about this product that is only revealed once clicked on.</p>
         </div>
       </div>
@@ -41,7 +48,7 @@
 
       <!-- _____ player Y card _____ -->
     <div class="player-y-display">
-      <div class="card col s5 offset-s1">
+      <div class="card col s5 offset-s2">
         <div class="card-image waves-effect waves-block waves-light">
           <img class="activator" src="images/office.jpg">
         </div>
@@ -51,14 +58,43 @@
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
         <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Card Title<i class="material-icons right">close</i></span>
+            <span class="card-title grey-text text-darken-4">Position Rank: {{positionYrank}}<i class="material-icons right">close</i></span>
             <p>Here is some more information about this product that is only revealed once clicked on.</p>
         </div>
       </div>
     </div>
 
-  </div>
+  </div>  <!-- _____ end of player cards _____ -->
 
+  <div class="table row container" hidden>
+    <table class="col s8 offset-s2">
+        <thead>
+          <tr>
+              <th data-field="id"></th>
+              <th data-field="name">{{playerX.player.FirstName}} {{playerX.player.LastName}}</th>
+              <th data-field="price">{{playerY.player.FirstName}} {{playerY.player.LastName}}</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Opponent:</td>
+            <td><i class="material-icons">done</i></td>
+            <td><i class="material-icons">done</i></td>
+          </tr>
+          <tr>
+            <td>Projected points:</td>
+            <td><i class="material-icons">done</i></td>
+            <td><i class="material-icons">done</i></td>
+          </tr>
+          <tr>
+            <td>Expert ranking:</td>
+            <td ng-if="positionXrank < positionYrank"><i class="material-icons">done</i></td>
+            <td ng-if="positionYrank < positionXrank"><i class="material-icons">done</i></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
 
 
 </div>
