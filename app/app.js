@@ -20,11 +20,16 @@ app
             return apiFactory.getPlayers()
           }
         }
-
       })
       .when('/user', {
         controller: "userCtrl",
         templateUrl: "/app/partials/user.html",
+        // resolve:
+
+      })
+      .when('/login', {
+        controller: "loginCtrl",
+        templateUrl: "/app/partials/login.html",
         // resolve:
 
       })
