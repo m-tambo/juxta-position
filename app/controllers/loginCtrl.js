@@ -7,10 +7,10 @@ app
     };
 
     $scope.loginUser = function () {
-      console.log('clicked')
+      authFactory
     };
 
     $scope.registerUser = function () {
-      console.log('clicked')
+      authFactory
     }
 })
