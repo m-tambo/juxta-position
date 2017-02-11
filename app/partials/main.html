@@ -14,6 +14,7 @@
       </div>
         <!-- select week -->
       <div class="col s4 offset-s4">
+                <!-- ______select element attempt 1______ -->
         <!-- Dropdown Trigger -->
         <!-- <a id="drops" class='dropdown-button btn' data-activates='dropdown1'>Drop Me!</a> -->
           <!-- Dropdown Structure -->
@@ -21,10 +22,14 @@
             <li ng-repeat="week in weeks"><a href="#!">{{week}}</a></li>
           </ul> -->
 
-        <label for="repeatSelect"> Select: </label>
+
+                <!-- ______select element attempt 2______ -->
+        <!-- <label for="repeatSelect"> Select: </label>
         <select name="repeatSelect" id="repeatSelect" ng-model="weeks.model">
           <option ng-repeat="option in weeks.availableOptions" value="{{option.id}}">{{option.name}}</option>
-        </select>
+        </select> -->
+
+
       </div>
         <!-- juxtaPose button -->
       <div class="juxta-btn center-align col s4 offset-s4" ng-click="juxtaPose()">
