@@ -33,7 +33,6 @@ app
         //.get(`http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016&week=6&format=json`)
         .get(`/data/nflWeek6stats.json`)
         .then((res) => {
-          console.log(res.data.players)
           return res.data.players
         })
       };

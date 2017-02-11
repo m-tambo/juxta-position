@@ -39,8 +39,8 @@ app
       $scope.showRankings($scope.playerX.player, 'rankingsX', 'positionXrank')
       $scope.showRankings($scope.playerY.player, 'rankingsY', 'positionYrank')
 
-      $scope.showStats($scope.playerX.player, 'statsX')
-      $scope.showStats($scope.playerY.player, 'statsY')
+      $scope.showStats($scope.playerX.player, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
+      $scope.showStats($scope.playerY.player, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
     }
 
 
@@ -92,16 +92,17 @@ app
         })
     }
 
-    $scope.showStats = function (guy, statObj) {
+    $scope.showStats = function (guy, seasonProj, season, weekProj, week) {
       apiFactory.getNflStats()
         .then((stats) => {
           for (k = 0; k < stats.length; k++) {
             if (stats[k].name === (guy.FirstName + " " + guy.LastName)) {
-              $scope[statObj] = stats[k]
-              $scope[]
-              $scope[]
-              $scope[]
-              console.log($scope[statObj])
+              $scope[seasonProj] = stats[k].seasonProjectedPts
+              $scope[season] = stats[k].seasonPts
+              $scope[weekProj] = stats[k].weekProjectedPts
+              $scope[week] = stats[k].weekPts
+
+              console.log($scope[seasonProj], $scope[season], $scope[weekProj], $scope[week])
             }
           }
         })
