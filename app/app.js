@@ -21,9 +21,9 @@ app
           }
         }
       })
-      .when('/user', {
-        controller: "userCtrl",
-        templateUrl: "/app/partials/user.html",
+      .when('/profile', {
+        controller: "profileCtrl",
+        templateUrl: "/app/partials/profile.html",
         resolve: {
           user (authFactory, $location) {
             return authFactory

@@ -14,8 +14,15 @@
       </div>
         <!-- select week -->
       <div class="col s4 offset-s4">
+        <!-- Dropdown Trigger -->
+        <!-- <a id="drops" class='dropdown-button btn' data-activates='dropdown1'>Drop Me!</a> -->
+          <!-- Dropdown Structure -->
+          <!--  <ul id='dropdown1' class='dropdown-content'>
+            <li ng-repeat="week in weeks"><a href="#!">{{week}}</a></li>
+          </ul> -->
+
         <label for="repeatSelect"> Select: </label>
-         <select name="repeatSelect" id="repeatSelect" ng-model="weeks.model">
+        <select name="repeatSelect" id="repeatSelect" ng-model="weeks.model">
           <option ng-repeat="option in weeks.availableOptions" value="{{option.id}}">{{option.name}}</option>
         </select>
       </div>

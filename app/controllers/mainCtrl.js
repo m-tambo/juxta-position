@@ -1,15 +1,15 @@
 app
   .controller('mainCtrl', function(players, $scope, apiFactory) {
-
-    // $scope.weeks = {1: "Week 1", 2:"Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9", "Week 10", "Week 11", "Week 12", "Week 13", "Week 14", "Week 15", "Week 16"}
+    console.log('mainCtrl firing')
+  // $scope.weeks = ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9", "Week 10", "Week 11", "Week 12", "Week 13", "Week 14", "Week 15", "Week 16"]
     $scope.weeks = {
-    model: null,
-    availableOptions: [
-      {id: '1', name: 'Week 1'}, {id: '2', name: 'Week 2'}, {id: '3', name: 'Week 3'}, {id: '4', name: 'Week 4'}, {id: '5', name: 'Week 5'}, {id: '6', name: 'Week 6'}, {id: '7', name: 'Week 7'}, {id: '8', name: 'Week 8'}, {id: '9', name: 'Week 9'}, {id: '10', name: 'Week 10'}, {id: '11', name: 'Week 11'}, {id: '12', name: 'Week 12'}, {id: '13', name: 'Week 13'}, {id: '14', name: 'Week 14'}, {id: '15', name: 'Week 15'}, {id: '16', name: 'Week 16'}
-    ]
-   };
+      model: null,
+      availableOptions: [
+        {'id': '1', 'name': 'Week 1'}, {'id': '2', 'name': 'Week 2'}, {'id': '3', 'name': 'Week 3'}, {'id': '4', 'name': 'Week 4'}, {'id': '5', 'name': 'Week 5'}, {'id': '6', 'name': 'Week 6'}, {'id': '7', 'name': 'Week 7'}, {'id': '8', 'name': 'Week 8'}, {'id': '9', 'name': 'Week 9'}, {'id': '10', 'name': 'Week 10'}, {'id': '11', 'name': 'Week 11'}, {'id': '12', 'name': 'Week 12'}, {'id': '13', 'name': 'Week 13'}, {'id': '14', 'name': 'Week 14'}, {'id': '15', 'name': 'Week 15'}, {'id': '16', 'name': 'Week 16'}
+      ]
+    };
+
     $scope.playerList = players;
-    console.log(players)
 
     $scope.playerNames = {}
     for (let j = 0; j < players.length; j++) {
@@ -39,7 +39,8 @@ app
       $scope.showRankings($scope.playerX.player, 'rankingsX', 'positionXrank')
       $scope.showRankings($scope.playerY.player, 'rankingsY', 'positionYrank')
 
-      // $scope.showStats()
+      $scope.showStats($scope.playerX.player, 'statsX')
+      $scope.showStats($scope.playerY.player, 'statsY')
     }
 
 
@@ -72,7 +73,7 @@ app
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === (guy.FirstName + " " + guy.LastName)) {
               $scope[letter] = projections[i]
-              console.log($scope[letter])
+              // console.log($scope[letter])
             }
           }
         })
@@ -91,13 +92,31 @@ app
         })
     }
 
-    $scope.showStats = function () {
+    $scope.showStats = function (guy, statObj) {
       apiFactory.getNflStats()
         .then((stats) => {
-          // for (k = 0; k < stats.length; k++) {
-            console.log(stats)
-
+          for (k = 0; k < stats.length; k++) {
+            if (stats[k].name === (guy.FirstName + " " + guy.LastName)) {
+              $scope[statObj] = stats[k]
+              $scope[]
+              $scope[]
+              $scope[]
+              console.log($scope[statObj])
+            }
+          }
         })
     }
 
+    // _____ materialize stuff _____
+    $('#drops').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrainWidth: false, // Does not change width of dropdown to that of the activator
+      hover: true, // Activate on hover
+      gutter: 0, // Spacing from edge
+      belowOrigin: false, // Displays dropdown below the button
+      alignment: 'left', // Displays dropdown with edge aligned to the left of button
+      stopPropagation: false // Stops event propagation
+    }
+  );
   })
