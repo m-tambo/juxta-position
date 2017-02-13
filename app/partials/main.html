@@ -79,52 +79,57 @@
 
   </div>  <!-- _____ end of player cards _____ -->
 
+  <div class="carousel carousel-slider center" data-indicators="true">
         <!-- ______ radar chart ______ -->
-  <div class="row">
-    <div class="chart-radar col s8 offset-s2" hidden>
-      <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="radarOptions" chart-labels="labels">
-      </canvas>
+    <div class="row carousel-item" href="#one!">
+      <div class="chart col s8 offset-s2">
+        <canvas id="radar" class="chart chart-radar" chart-data="data" chart-options="options" chart-series="series" chart-labels="labels">
+        </canvas>
+      </div>
     </div>
-  </div>
 
-        <!-- ______ bar chart ______ -->
-  <div class="row">
-    <div class="chart-radar col s8 offset-s2" hidden>
-      <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
-      </canvas>
+          <!-- ______ bar chart ______ -->
+    <div class="row carousel-item" href="#two!">
+      <div class="chart col s8 offset-s2">
+        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
+        </canvas>
+      </div>
     </div>
-  </div>
 
         <!-- ______ comparison table ______ -->
-  <div class="table row container" hidden>
-    <table class="col s8 offset-s2">
-        <thead>
-          <tr>
-              <th data-field="id"></th>
-              <th data-field="name">{{playerX.player.FirstName}} {{playerX.player.LastName}}</th>
-              <th data-field="price">{{playerY.player.FirstName}} {{playerY.player.LastName}}</th>
-          </tr>
-        </thead>
+    <div class="table row container carousel-item" href="#three!">
+      <table class="col s8 offset-s2">
+          <thead>
+            <tr>
+                <th data-field="id"></th>
+                <th data-field="name">{{playerX.player.FirstName}} {{playerX.player.LastName}}</th>
+                <th data-field="price">{{playerY.player.FirstName}} {{playerY.player.LastName}}</th>
+            </tr>
+          </thead>
 
-        <tbody>
-          <tr>
-            <td>Opponent:</td>
-            <td><i class="material-icons">done</i></td>
-            <td><i class="material-icons">done</i></td>
-          </tr>
-          <tr>
-            <td>Projected points:</td>
-            <td ng-if="weekProjectedX > weekProjectedY"><i class="material-icons">done</i></td>
-            <td ng-if="weekProjectedX < weekProjectedY"><i class="material-icons">done</i></td>
-          </tr>
-          <tr>
-            <td>Expert ranking:</td>
-            <td ng-if="positionXrank < positionYrank"><i class="material-icons">done</i></td>
-            <td ng-if="positionXrank > positionYrank"><i class="material-icons">done</i></td>
-          </tr>
-        </tbody>
-      </table>
+          <tbody>
+            <tr>
+              <td>Opponent:</td>
+              <td><i class="material-icons">done</i></td>
+              <td><i class="material-icons">done</i></td>
+            </tr>
+            <tr>
+              <td>Projected points:</td>
+              <td ng-if="weekProjectedX > weekProjectedY"><i class="material-icons">done</i></td>
+              <td ng-if="weekProjectedX < weekProjectedY"><i class="material-icons">done</i></td>
+            </tr>
+            <tr>
+              <td>Expert ranking:</td>
+              <td ng-if="positionXrank < positionYrank"><i class="material-icons">done</i></td>
+              <td ng-if="positionXrank > positionYrank"><i class="material-icons">done</i></td>
+            </tr>
+          </tbody>
+        </table>
+    </div>    <!-- ______ end of comparison table ______ -->
+  </div>  <!-- ______ end of carousel ______ -->
+
+  <div>
+
   </div>
-       <!-- ______ end of comparison table ______ -->
 
 </div>   <!-- ______ end of main page ______ -->

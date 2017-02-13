@@ -11,16 +11,16 @@ app
 
     $scope.playerList = players;
 
-    $scope.playerNames = {}
+    $scope.playerNames = {}  // making an object with just player names
     for (let j = 0; j < players.length; j++) {
       let name = ($scope.playerList[j].player.FirstName + " " + $scope.playerList[j].player.LastName)
       $scope.playerNames[name] = null
     }
 
-    $scope.labels = ["Projected Season Pts", "Pts this season", "Projected Weekly Pts", "Pts this week"]
+      // bar chart labels
+    $scope.labels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
 
-
-  // ____ auto-complete function ____
+      // ____ auto-complete function ____
     $('input.autocomplete').autocomplete({
       data: $scope.playerNames,  // list of player names
       limit: 5,  // max amount of results
@@ -33,7 +33,7 @@ app
 
       $scope.setPlayers('inputx', 'playerX');
       $scope.setPlayers('inputy', 'playerY');
-
+      $scope.series = [$scope.playerX.player.FirstName, $scope.playerY.player.FirstName]  // setting series names for bar chart
       $scope.showJuxtaposition();
 
       $scope.showProjections($scope.playerX.player, 'projectionsX');  // find playerX projections, set obj to var
@@ -65,7 +65,7 @@ app
       else {
         document.querySelector('.player-versus').removeAttribute('hidden')
         document.querySelector('.table').removeAttribute('hidden')
-        document.querySelector('.chart-radar').removeAttribute('hidden')
+        document.querySelector('.carousel').removeAttribute('hidden')
         document.querySelector('.player-search').setAttribute('hidden', 'hidden')
       }
     }
@@ -83,6 +83,7 @@ app
         })
     }
 
+
     $scope.showRankings = function (dude, letter, pos) {
       apiFactory.getNerdRankings() // (dude, [week#])
         .then((rankings) => {
@@ -96,6 +97,7 @@ app
         })
     }
 
+
     $scope.showStats = function (guy, seasonProj, season, weekProj, week) {
       apiFactory.getNflStats()
         .then((stats) => {
@@ -106,10 +108,11 @@ app
               $scope[weekProj] = stats[k].weekProjectedPts
               $scope[week] = stats[k].weekPts
 
-                  $scope.radarData = [
-          [$scope.seasonProjectedX, $scope.seasonPtsX, $scope.weekProjectedX, $scope.weekPtsX],
-          [$scope.seasonProjectedY, $scope.seasonPtsY, $scope.weekProjectedY, $scope.weekPtsY]
-      ]
+              $scope.data = [
+                [$scope.seasonProjectedX, $scope.seasonPtsX, $scope.weekProjectedX, $scope.weekPtsX],
+                [$scope.seasonProjectedY, $scope.seasonPtsY, $scope.weekProjectedY, $scope.weekPtsY]
+              ]
+
               console.log($scope[seasonProj], $scope[season], $scope[weekProj], $scope[week])
             }
           }
@@ -127,4 +130,7 @@ app
       alignment: 'left', // Displays dropdown with edge aligned to the left of button
       stopPropagation: false // Stops event propagation
     });
+
+    $('.carousel.carousel-slider').carousel({fullWidth: true});
+
   })
