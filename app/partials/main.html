@@ -79,11 +79,23 @@
 
   </div>  <!-- _____ end of player cards _____ -->
 
-  <div>
-
+        <!-- ______ radar chart ______ -->
+  <div class="row">
+    <div class="chart-radar col s8 offset-s2" hidden>
+      <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="radarOptions" chart-labels="labels">
+      </canvas>
+    </div>
   </div>
 
+        <!-- ______ bar chart ______ -->
+  <div class="row">
+    <div class="chart-radar col s8 offset-s2" hidden>
+      <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
+      </canvas>
+    </div>
+  </div>
 
+        <!-- ______ comparison table ______ -->
   <div class="table row container" hidden>
     <table class="col s8 offset-s2">
         <thead>
@@ -113,6 +125,6 @@
         </tbody>
       </table>
   </div>
+       <!-- ______ end of comparison table ______ -->
 
-
-</div>
+</div>   <!-- ______ end of main page ______ -->

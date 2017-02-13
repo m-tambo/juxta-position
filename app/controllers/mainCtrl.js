@@ -17,6 +17,9 @@ app
       $scope.playerNames[name] = null
     }
 
+    $scope.labels = ["Projected Season Pts", "Pts this season", "Projected Weekly Pts", "Pts this week"]
+
+
   // ____ auto-complete function ____
     $('input.autocomplete').autocomplete({
       data: $scope.playerNames,  // list of player names
@@ -62,6 +65,7 @@ app
       else {
         document.querySelector('.player-versus').removeAttribute('hidden')
         document.querySelector('.table').removeAttribute('hidden')
+        document.querySelector('.chart-radar').removeAttribute('hidden')
         document.querySelector('.player-search').setAttribute('hidden', 'hidden')
       }
     }
@@ -102,6 +106,10 @@ app
               $scope[weekProj] = stats[k].weekProjectedPts
               $scope[week] = stats[k].weekPts
 
+                  $scope.radarData = [
+          [$scope.seasonProjectedX, $scope.seasonPtsX, $scope.weekProjectedX, $scope.weekPtsX],
+          [$scope.seasonProjectedY, $scope.seasonPtsY, $scope.weekProjectedY, $scope.weekPtsY]
+      ]
               console.log($scope[seasonProj], $scope[season], $scope[weekProj], $scope[week])
             }
           }
