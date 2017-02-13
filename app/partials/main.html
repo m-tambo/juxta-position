@@ -79,26 +79,26 @@
 
   </div>  <!-- _____ end of player cards _____ -->
 
-  <div class="carousel carousel-slider center" data-indicators="true">
+  <div class="row carousel carousel-slider center" data-indicators="true">
         <!-- ______ radar chart ______ -->
-    <div class="row carousel-item" href="#one!">
-      <div class="chart col s8 offset-s2">
+    <div class="carousel-item yellow lighten-5" href="#one!">
+      <div class="chart col s6 offset-s3">
         <canvas id="radar" class="chart chart-radar" chart-data="data" chart-options="options" chart-series="series" chart-labels="labels">
         </canvas>
       </div>
     </div>
 
           <!-- ______ bar chart ______ -->
-    <div class="row carousel-item" href="#two!">
-      <div class="chart col s8 offset-s2">
+    <div class="carousel-item red lighten-5" href="#two!">
+      <div class="chart col s10 offset-s1">
         <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
         </canvas>
       </div>
     </div>
 
         <!-- ______ comparison table ______ -->
-    <div class="table row container carousel-item" href="#three!">
-      <table class="col s8 offset-s2">
+    <div class="table row container carousel-item orange lighten-5" href="#three!">
+      <table class="col s10 offset-s1">
           <thead>
             <tr>
                 <th data-field="id"></th>
@@ -128,8 +128,17 @@
     </div>    <!-- ______ end of comparison table ______ -->
   </div>  <!-- ______ end of carousel ______ -->
 
-  <div>
-
+    <!-- ______ player choice buttons _____ -->
+  <div class="row choice-btn" hidden>
+    <div class="col s3 offset-s3">
+      <button class="btn waves-effect waves-orange">{{playerX.player.FirstName}}</button>
+    </div>
+    <div class="col s2">
+      or
+    </div>
+    <div class="col s3">
+      <button class="btn waves-effect waves-orange">{{playerY.player.FirstName}}</button>
+    </div>
   </div>
 
 </div>   <!-- ______ end of main page ______ -->

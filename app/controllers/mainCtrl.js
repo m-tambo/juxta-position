@@ -65,7 +65,8 @@ app
       else {
         document.querySelector('.player-versus').removeAttribute('hidden')
         document.querySelector('.table').removeAttribute('hidden')
-        document.querySelector('.carousel').removeAttribute('hidden')
+        document.querySelector('.carousel-slider').removeAttribute('hidden')
+        document.querySelector('.choice-btn').removeAttribute('hidden')
         document.querySelector('.player-search').setAttribute('hidden', 'hidden')
       }
     }
