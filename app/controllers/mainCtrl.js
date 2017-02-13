@@ -1,7 +1,7 @@
 app
   .controller('mainCtrl', function(players, $scope, apiFactory) {
     console.log('mainCtrl firing')
-  $scope.weeks = [{value: "Week 1"}, {value: "Week 2"}, {value: "Week 3"}, {value: "Week 4"}, {value: "Week 5"}, {value: "Week 6"}, {value: "Week 7"}, {value: "Week 8"}, {value: "Week 9"}, {value: "Week 10"}, {value: "Week 11"}, {value: "Week 12"}, {value: "Week 13"}, {value: "Week 14"}, {value: "Week 15"}, {value: "Week 16"}, ]
+    $scope.weeks = [{value: "Week 1"}, {value: "Week 2"}, {value: "Week 3"}, {value: "Week 4"}, {value: "Week 5"}, {value: "Week 6"}, {value: "Week 7"}, {value: "Week 8"}, {value: "Week 9"}, {value: "Week 10"}, {value: "Week 11"}, {value: "Week 12"}, {value: "Week 13"}, {value: "Week 14"}, {value: "Week 15"}, {value: "Week 16"}, ]
     // $scope.weeks = {
     //   model: null,
     //   availableOptions: [
@@ -31,7 +31,7 @@ app
       $scope.setPlayers('inputx', 'playerX');
       $scope.setPlayers('inputy', 'playerY');
 
-      $scope.showData();
+      $scope.showJuxtaposition();
 
       $scope.showProjections($scope.playerX.player, 'projectionsX');  // find playerX projections, set obj to var
       $scope.showProjections($scope.playerY.player, 'projectionsY');  // find playerY projections, set obj to var
@@ -55,7 +55,7 @@ app
     }
 
 
-    $scope.showData = function () {
+    $scope.showJuxtaposition = function () {
       if ($scope.playerX === undefined || $scope.playerY === undefined) {
         alert("To see comparison, enter two valid Player names")
       }
@@ -118,6 +118,5 @@ app
       belowOrigin: false, // Displays dropdown below the button
       alignment: 'left', // Displays dropdown with edge aligned to the left of button
       stopPropagation: false // Stops event propagation
-    }
-  );
+    });
   })
