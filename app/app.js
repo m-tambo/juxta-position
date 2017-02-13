@@ -1,4 +1,4 @@
-const app = angular.module('juxtaPosition', ['ngRoute', 'directives'])
+const app = angular.module('juxtaPosition', ['ngRoute', 'directives', 'chart.js'])
 
 app
   .config(($routeProvider) => {
