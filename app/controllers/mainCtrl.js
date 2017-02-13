@@ -1,5 +1,5 @@
 app
-  .controller('mainCtrl', function(players, $scope, apiFactory) {
+  .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory) {
     console.log('mainCtrl firing')
     $scope.weeks = [{value: "Week 1"}, {value: "Week 2"}, {value: "Week 3"}, {value: "Week 4"}, {value: "Week 5"}, {value: "Week 6"}, {value: "Week 7"}, {value: "Week 8"}, {value: "Week 9"}, {value: "Week 10"}, {value: "Week 11"}, {value: "Week 12"}, {value: "Week 13"}, {value: "Week 14"}, {value: "Week 15"}, {value: "Week 16"}, ]
     // $scope.weeks = {
@@ -118,6 +118,10 @@ app
             }
           }
         })
+    }
+
+    $scope.postComparison = function (pick) {
+      firebaseFactory.postComp($scope.playerX.player.FirstName, $scope.playerY.player.FirstName, pick)
     }
 
     // _____ materialize stuff _____

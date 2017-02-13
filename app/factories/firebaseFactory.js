@@ -13,13 +13,13 @@ app
           .then(() => {
             return newComp
           })
-      }
+      },
 
-      getComp : () => {
+      getComp : (uid) => {
         return $http
-          .get('https://juxta-position.firebaseio.com/comps.json')
-          .then(() => {
-            return
+          .get('https://juxta-position.firebaseio.com/comps.json')  // order by uid ??
+          .then((obj) => {
+            return obj
           })
       }
     }

@@ -131,13 +131,13 @@
     <!-- ______ player choice buttons _____ -->
   <div class="row choice-btn" hidden>
     <div class="col s3 offset-s3">
-      <button class="btn waves-effect waves-orange">{{playerX.player.FirstName}}</button>
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(playerX)">{{playerX.player.FirstName}}</button>
     </div>
     <div class="col s2">
       or
     </div>
     <div class="col s3">
-      <button class="btn waves-effect waves-orange">{{playerY.player.FirstName}}</button>
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(playerY)">{{playerY.player.FirstName}}</button>
     </div>
   </div>
 
