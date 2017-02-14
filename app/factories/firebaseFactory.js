@@ -1,5 +1,5 @@
 app
-  .factory('firebaseFactory', function() {
+  .factory('firebaseFactory', function($http) {
     return {
       postComp : (playerX, playerY, choice) => {
         let newComp = {

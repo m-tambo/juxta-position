@@ -31,28 +31,30 @@ app
       $scope.inputx = document.querySelector('.input-x').value  // capture the autocomplete values
       $scope.inputy = document.querySelector('.input-y').value  // capture the autocomplete values
 
-      $scope.setPlayers('inputx', 'playerX');
-      $scope.setPlayers('inputy', 'playerY');
+      $scope.setPlayers('inputx', 'playerX', 'nameX');
+      $scope.setPlayers('inputy', 'playerY', 'nameY');
       $scope.series = [$scope.playerX.player.FirstName, $scope.playerY.player.FirstName]  // setting series names for bar chart
       $scope.showJuxtaposition();
 
-      $scope.showProjections($scope.playerX.player, 'projectionsX');  // find playerX projections, set obj to var
-      $scope.showProjections($scope.playerY.player, 'projectionsY');  // find playerY projections, set obj to var
+      $scope.showProjections($scope.nameX, 'projectionsX');  // find playerX projections, set obj to var
+      $scope.showProjections($scope.nameY, 'projectionsY');  // find playerY projections, set obj to var
 
-      $scope.showRankings($scope.playerX.player, 'rankingsX', 'positionXrank')
-      $scope.showRankings($scope.playerY.player, 'rankingsY', 'positionYrank')
+      $scope.showRankings($scope.nameX, 'rankingsX', 'positionXrank')
+      $scope.showRankings($scope.nameY, 'rankingsY', 'positionYrank')
 
-      $scope.showStats($scope.playerX.player, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
-      $scope.showStats($scope.playerY.player, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
+      $scope.showStats($scope.nameX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
+      $scope.showStats($scope.nameY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
     }
 
 
-    $scope.setPlayers = function (input, output) {
+    $scope.setPlayers = function (input, output, name) {
     // ____ find input player in playerList, set player object to output ____
       for (let i = 0; i < $scope.playerList.length; i++) {
         if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
           $scope[output] = $scope.playerList[i]
-          // console.log('player:', $scope[output]['player'])
+          $scope[name] = ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)
+          console.log('name:', $scope[name])
+          console.log('player:', $scope[output]['player'])
         }
       }
     }
@@ -76,9 +78,10 @@ app
       apiFactory.getNerdProjections()  // (guy.Position, [week#])
         .then((projections) => {
           for (i = 0; i < projections.length; i++) {
-            if (projections[i].displayName === (guy.FirstName + " " + guy.LastName)) {
+            if (projections[i].displayName === guy) {   // find matching player
               $scope[letter] = projections[i]
-              // console.log($scope[letter])
+              console.log($scope[letter])
+              console.log('good')
             }
           }
         })
@@ -89,7 +92,7 @@ app
       apiFactory.getNerdRankings() // (dude, [week#])
         .then((rankings) => {
           for (j = 0; j < rankings.length; j++) {
-            if (rankings[j].name === (dude.FirstName + " " + dude.LastName)) {
+            if (rankings[j].name === dude) {   // find matching player
               $scope[letter] = rankings[j]
               $scope[pos] = j + 1
               console.log('position rank:', $scope[pos], 'rankings: ', $scope[letter])
@@ -103,7 +106,7 @@ app
       apiFactory.getNflStats()
         .then((stats) => {
           for (k = 0; k < stats.length; k++) {
-            if (stats[k].name === (guy.FirstName + " " + guy.LastName)) {
+            if (stats[k].name === guy) {  // find matching player
               $scope[seasonProj] = stats[k].seasonProjectedPts
               $scope[season] = stats[k].seasonPts
               $scope[weekProj] = stats[k].weekProjectedPts
@@ -120,6 +123,7 @@ app
         })
     }
 
+      // _______ post to firebase _______
     $scope.postComparison = function (pick) {
       firebaseFactory.postComp($scope.playerX.player.FirstName, $scope.playerY.player.FirstName, pick)
     }
