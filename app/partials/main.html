@@ -48,7 +48,7 @@
           <img class="activator" src="images/office.jpg">
         </div>
         <div class="card-content">
-            <span class="card-title activator grey-text text-darken-2">{{playerX.player.FirstName}} {{playerX.player.LastName}}<i class="material-icons right">more_vert</i></span>
+            <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
             <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -66,7 +66,7 @@
           <img class="activator" src="images/office.jpg">
         </div>
         <div class="card-content">
-            <span class="card-title activator grey-text text-darken-2">{{playerY.player.FirstName}} {{playerY.player.LastName}}<i class="material-icons right">more_vert</i></span>
+            <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
             <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -81,7 +81,7 @@
 
   <div class="row carousel carousel-slider center" data-indicators="true">
         <!-- ______ radar chart ______ -->
-    <div class="carousel-item yellow lighten-5" href="#one!">
+    <div class="carousel-item orange lighten-4" href="#one!">
       <div class="chart col s6 offset-s3">
         <canvas id="radar" class="chart chart-radar" chart-data="data" chart-options="options" chart-series="series" chart-labels="labels">
         </canvas>
@@ -89,7 +89,7 @@
     </div>
 
           <!-- ______ bar chart ______ -->
-    <div class="carousel-item red lighten-5" href="#two!">
+    <div class="carousel-item orange lighten-3" href="#two!">
       <div class="chart col s10 offset-s1">
         <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
         </canvas>
@@ -102,8 +102,8 @@
           <thead>
             <tr>
                 <th data-field="id"></th>
-                <th data-field="name">{{playerX.player.FirstName}} {{playerX.player.LastName}}</th>
-                <th data-field="price">{{playerY.player.FirstName}} {{playerY.player.LastName}}</th>
+                <th data-field="name">{{nameX}}</th>
+                <th data-field="price">{{nameY}}</th>
             </tr>
           </thead>
 
@@ -131,13 +131,13 @@
     <!-- ______ player choice buttons _____ -->
   <div class="row choice-btn" hidden>
     <div class="col s3 offset-s3">
-      <button class="btn waves-effect waves-orange" ng-click="postComparison(playerX)">{{playerX.player.FirstName}}</button>
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameX)">{{playerX.player.FirstName}}</button>
     </div>
     <div class="col s2">
       or
     </div>
     <div class="col s3">
-      <button class="btn waves-effect waves-orange" ng-click="postComparison(playerY)">{{playerY.player.FirstName}}</button>
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameY)">{{playerY.player.FirstName}}</button>
     </div>
   </div>
 

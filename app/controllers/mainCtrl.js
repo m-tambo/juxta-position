@@ -17,7 +17,7 @@ app
       $scope.playerNames[name] = null
     }
 
-      // bar chart labels
+      // _____ bar chart labels _____
     $scope.labels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
 
       // ____ auto-complete function ____
@@ -125,7 +125,7 @@ app
 
       // _______ post to firebase _______
     $scope.postComparison = function (pick) {
-      firebaseFactory.postComp($scope.playerX.player.FirstName, $scope.playerY.player.FirstName, pick)
+      firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, )
     }
 
     // _____ materialize stuff _____

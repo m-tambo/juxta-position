@@ -1,11 +1,12 @@
 app
   .factory('firebaseFactory', function($http) {
     return {
-      postComp : (playerX, playerY, choice) => {
+      postComp : (nameX, nameY, choice, uid) => {
         let newComp = {
-          playerX: playerX,
-          playerY: playerY,
-          choice: choice
+          nameX: nameX,
+          nameY: nameY,
+          choice: choice,
+          uid: uid
         };
 
         return $http
