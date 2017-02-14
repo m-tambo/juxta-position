@@ -7,6 +7,9 @@ app
       login (email, pass) {
         // converts promise to angular promise so no $scope.$apply needed
         return $q.resolve(firebase.auth().signInWithEmailAndPassword(email, pass))
+          .then((res) => {
+            return res.uid
+          })
       },
 
       register (email, pass) {
