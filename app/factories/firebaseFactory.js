@@ -16,7 +16,7 @@ app
           })
       },
 
-      getComp : (uid) => {
+      getComps : (uid) => {
         return $http
           .get('https://juxta-position.firebaseio.com/comps.json')  // order by uid ??
           .then((obj) => {
