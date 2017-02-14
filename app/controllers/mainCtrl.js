@@ -33,8 +33,9 @@ app
 
       $scope.setPlayers('inputx', 'playerX', 'nameX');
       $scope.setPlayers('inputy', 'playerY', 'nameY');
-      $scope.series = [$scope.playerX.player.FirstName, $scope.playerY.player.FirstName]  // setting series names for bar chart
+
       $scope.showJuxtaposition();
+      $scope.series = [$scope.playerX.player.FirstName, $scope.playerY.player.FirstName]  // setting series names for bar chart
 
       $scope.showProjections($scope.nameX, 'projectionsX');  // find playerX projections, set obj to var
       $scope.showProjections($scope.nameY, 'projectionsY');  // find playerY projections, set obj to var

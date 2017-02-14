@@ -3,7 +3,7 @@ const dir = angular.module('directives', []);
 dir
   .directive('navbar', function() {
     return {
-      restrict: "E",
+      restrict: "E",  // defines this directive as the element <navbar>
       templateUrl: "/app/partials/navbar.html",
       controller: function($scope, authFactory, $location) {
         $scope.user = firebase.auth().currentUser
