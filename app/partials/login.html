@@ -1,0 +1,54 @@
+ <div class="">
+  <a href="#"><h3 class="main-header"><em><strong>Juxta Position</strong></em></h3></a>
+</div>
+
+      <!-- _____ login form _____ -->
+  <div class="login row container">
+    <h3>Login</h3>
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="login-email" type="email" class="validate" ng-model="loginEmail">
+          <label for="login-email">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="login-pass" type="password" class="validate" ng-model="loginPass">
+          <label for="login-pass">Password</label>
+        </div>
+        <div class="center">
+          <button class="btn small" type="submit" ng-click="loginUser()">Login</button>
+        </div>
+      </div>
+    </form>
+    <div class="right">
+      <h5 class="small">Don't have an account?</h5>
+      <button class="waves-effect waves-light btn center" ng-click="goToRegister()">Register</button>
+    </div>
+  </div>
+
+       <!-- _____ register form _____ -->
+  <div class="register row container" hidden>
+    <h3>Register</h3>
+    <form class="col s12" ng-submit="registerUser()">
+      <div class="row">
+        <div class="input-field col s6">
+          <i class="material-icons prefix">account_circle</i>
+          <input id="register-email" type="email" class="validate" ng-model="registerEmail">
+          <label for="register-email">Email</label>
+        </div>
+        <div class="input-field col s6">
+          <i class="material-icons prefix">vpn_key</i>
+          <input id="register-pass" type="password" class="validate" ng-model="registerPass">
+          <label for="register-pass">Password</label>
+        </div>
+        <div class="center">
+          <button class="btn small" type="submit" ng-click="registerUser()">Register</button>
+        </div>
+      </div>
+    </form>
+  </div>
+     <!-- _____ login image _____ -->
+<div class="login-image" hidden>
+</div>

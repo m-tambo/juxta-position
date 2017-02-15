@@ -1,0 +1,51 @@
+/************
+  main page
+************/
+
+/* background */
+.head-image {
+  background-image: url('images/headToHead.jpg');
+  background-size: cover;
+  margin-top: none;
+  padding: 1% 1% 25% 1%;
+}
+
+.main-header {
+  margin-top: -6%;
+  margin-left: 70%;
+  margin-bottom: 5%;
+}
+
+/* label color */
+
+
+/* label underline focus color */
+.input-x, .inpu-y {
+  border-bottom: 1px solid orange;
+  box-shadow: 0 1px 0 0 orange;
+}
+
+form {
+  margin-top: 8%;
+}
+
+/* juxta button */
+.btn {
+  margin: 2%;
+}
+
+/* icon styling */
+.material-icons {
+  color: orange;
+}
+
+/************
+  login page
+************/
+
+.login-image {
+  background-image: url('images/headToHead.jpg');
+  background-size: cover;
+  margin-top: none;
+  padding: 1% 1% 25% 1%;
+}

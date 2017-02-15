@@ -1,0 +1,27 @@
+
+<div class="container">
+  <a href="/"><p><em><strong>Juxta Position</strong></em></p></a>
+  <div class="row">
+    <div class="profile-pic col s4 offset-s8">
+      <img class="circle" src="{{profilePic}}" />
+      <h5 class="center">{{user.email}}</h5>
+    </div>
+  </div>
+  <div class="divider"></div>
+
+  <div class="my-comps">
+    <div>
+      <h3>Saved comparisons</h3>
+      <ul class="collapsible popout" data-collapsible="accordion" ng-repeat="(key, comp) in comps">
+        <li>
+          <div class="collapsible-header" ng-click='openComp()'>
+            <i class="material-icons">assessment</i>
+            You compared <b>{{comp.nameX}}</b> and <b>{{comp.nameY}}</b>.
+            <a href="" ng-click="deleteComp(key)"><i class="material-icons right">delete</i></a>
+          </div>
+          <div class="collapsible-body"><span> You chose {{comp.choice}}.</span></div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
