@@ -2,7 +2,7 @@ app
   .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory) {
     console.log('mainCtrl firing')
     $scope.weeks = ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9", "Week 10", "Week 11", "Week 12", "Week 13", "Week 14", "Week 15", "Week 16"]
-
+    $scope.uid = firebase.auth().currentUser.uid;
     $scope.playerList = players;
 
     $scope.playerNames = {}  // making an object with just player names for auto-complete function
@@ -120,8 +120,7 @@ app
 
       // _______ post to firebase _______
     $scope.postComparison = function (pick) {
-      let uid = firebase.auth().currentUser.uid;
-      firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, uid)
+      firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, $scope.uid)
     }
 
     // _____ materialize stuff _____
