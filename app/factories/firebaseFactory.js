@@ -22,7 +22,12 @@ app
           .then((obj) => {
             return obj.data
           })
-      }
-    }
+      },
 
+      deleteComp : (id) => {
+        return $http
+          .delete(`https://juxta-position.firebaseio.com/comps/${id}.json`)
+      }
+
+    }
   })
