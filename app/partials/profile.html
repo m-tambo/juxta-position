@@ -14,7 +14,7 @@
       <h3>Saved comparisons</h3>
       <ul class="collapsible popout" data-collapsible="accordion" ng-repeat="(key, comp) in comps">
         <li>
-          <div class="collapsible-header">
+          <div class="collapsible-header" ng-click='openComp()'>
             <i class="material-icons">assessment</i>
             You compared <b>{{comp.nameX}}</b> and <b>{{comp.nameY}}</b>.
             <a href="" ng-click="deleteComp(key)"><i class="material-icons right">delete</i></a>

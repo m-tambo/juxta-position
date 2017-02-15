@@ -21,5 +21,8 @@ app
     }
 
     // _____ materialize stuff _____
-    $('.collapsible').collapsible();
+    $scope.openComp = function () {
+      $('.collapsible').collapsible();
+    }
+
   })
