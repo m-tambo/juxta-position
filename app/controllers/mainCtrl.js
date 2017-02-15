@@ -5,20 +5,20 @@ app
 
     $scope.playerList = players;
 
-    $scope.playerNames = {}  // making an object with just player names
+    $scope.playerNames = {}  // making an object with just player names for auto-complete function
     for (let j = 0; j < players.length; j++) {
       let name = ($scope.playerList[j].player.FirstName + " " + $scope.playerList[j].player.LastName)
       $scope.playerNames[name] = null
     }
-
-      // _____ bar chart labels _____
-    $scope.labels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
 
       // ____ auto-complete function ____
     $('input.autocomplete').autocomplete({
       data: $scope.playerNames,  // list of player names
       limit: 5,  // max amount of results
     });
+
+      // _____ bar chart labels _____
+    $scope.labels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
 
 
     $scope.juxtaPose = function() {
@@ -120,7 +120,8 @@ app
 
       // _______ post to firebase _______
     $scope.postComparison = function (pick) {
-      firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, )
+      let uid = firebase.auth().currentUser.uid;
+      firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, uid)
     }
 
     // _____ materialize stuff _____
