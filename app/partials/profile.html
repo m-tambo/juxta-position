@@ -7,13 +7,16 @@
       <h5 class="center">{{user.email}}</h5>
     </div>
   </div>
+  <div class="divider"></div>
 
   <div class="my-comps">
     <div>
       <h3>Saved comparisons</h3>
-      <div class="divider"></div>
-      <ul ng-repeat="comp in comps">
-        <li>{{comp}}</li>
+      <ul class="collapsible popout" data-collapsible="accordion" ng-repeat="comp in comps">
+        <li>
+          <div class="collapsible-header"><i class="material-icons">filter_drama</i>You compared {{comp.nameX}} and {{comp.nameY}}.</div>
+          <div class="collapsible-body"><span> You chose {{comp.choice}}.</span></div>
+        </li>
       </ul>
     </div>
   </div>

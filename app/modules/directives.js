@@ -37,6 +37,7 @@ dir
           $scope.hideNav()
         }
       },
+
       resolve: {
           user (authFactory, $location) {
             return authFactory

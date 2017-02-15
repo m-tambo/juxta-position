@@ -1,10 +1,16 @@
 app
-  .controller('profileCtrl', function($scope) { // firebaseFactory
+  .controller('profileCtrl', function($scope, firebaseFactory) {
     console.log('profile controller firing')
 
     $scope.user = firebase.auth().currentUser
     $scope.profilePic = 'http://nexus1492.eu/wp-content/plugins/smartcat_our_team/inc/img/noprofile.jpg'
 
-    $scope.comps = [1,2,3,4,5,6,7,8]
-    $scope.firebaseFactory.getComps;
+    firebaseFactory.getComps()
+      .then((comps) => {
+        console.log(comps)
+        $scope.comps = comps
+      })
+
+    // _____ materialize stuff _____
+    // $('.collapsible').collapsible();
   })
