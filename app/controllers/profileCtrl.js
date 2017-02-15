@@ -12,6 +12,14 @@ app
         $scope.comps = comps
       })
 
+    $scope.deleteComp = function (id) {
+      console.log('delete')
+      firebaseFactory.deleteComp(id)
+        .then(() => {
+          delete $scope.comps[id]  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
+        })
+    }
+
     // _____ materialize stuff _____
     $('.collapsible').collapsible();
   })
