@@ -3,16 +3,16 @@
   <div class="background">
     <img src="">
   </div>
-  <li ng-if="user !== null">
+  <li>  <!-- ng-if="user !== null" -->
     <div class="userView">
-      <a href="#!user"><img class="circle" src=""></a>
-      <a href="#!name"><span class="white-text name">user.name</span></a>
-      <a href="#!email"><span class="white-text email">user.email</span></a>
+      <a href="#!/profile" ng-click="hideNav()"><img class="circle" src=""></a>
+      <a href="#!name"><span class="white-text name">{{user.name}}</span></a>
+      <a href="#!email"><span class="white-text email">{{user.email}}</span></a>
     </div>
   </li>
-  <li><a class="waves-effect" href="#"><i class="material-icons">home</i>JuxtaPosition</a></li>
-  <li ng-if="user === null"><a href="#!/login">Login</a></li>
-  <li ng-if="user === null"><a href="#!/login" ng-click="goToResgister()">Register new account</a></li>
+  <li><a class="waves-effect" href="#" ng-click="hideNav()"><i class="material-icons">home</i>JuxtaPosition</a></li>
+  <li ng-if="user === null"><a href="#!/login" ng-click="goToLogin()">Login</a></li>
+  <li ng-if="user === null"><a href="#!/login" ng-click="goToRegister()">Register new account</a></li>
   <li>
     <div class="divider"></div>
   </li>
