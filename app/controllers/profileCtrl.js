@@ -20,9 +20,18 @@ app
         })
     }
 
+    $scope.addNote = function (id, note) {
+      firebaseFactory.patchNote(id, note)
+        .then(() => {
+
+        })
+    }
+
     // _____ materialize stuff _____
     $scope.openComp = function () {
       $('.collapsible').collapsible();
     }
+
+    $('.tooltipped').tooltip({delay: 50})
 
   })

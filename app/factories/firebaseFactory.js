@@ -27,6 +27,12 @@ app
       deleteComp : (id) => {
         return $http
           .delete(`https://juxta-position.firebaseio.com/comps/${id}.json`)
+      },
+
+      patchNote : (id, note) => {
+        let data = {"note": note}
+        return $http
+          .patch(`https://juxta-position.firebaseio.com/comps/${id}.json`, data)
       }
 
     }
