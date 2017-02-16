@@ -22,7 +22,7 @@ app
     $scope.addNote = function (id, note) {
       firebaseFactory.patchNote(id, note)
         .then(() => {
-          console.log('note added')
+          $scope.comps[id].note = note
         })
     }
 

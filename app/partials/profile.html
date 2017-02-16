@@ -22,10 +22,12 @@
           <div class="collapsible-body">
             <span> You chose {{comp.choice}}.</span>
             <br />
-            <input type="text" ng-model="newNote">
-            <button ng-click="addNote(key, newNote)">Save note</button>
-            <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Add a note.</a>
-              <i class="material-icons " ng-if="comp.note === undefined">note</i>
+            <div class="newNote" ng-if="comp.note === undefined">
+              <input class="left-align" type="text" ng-model="newNote">
+              <a class="right-align btn-floating btn-small waves-effect waves-light blue tooltipped" data-position="bottom" data-delay="50" data-tooltip="Add a note" ng-click="addNote(key, newNote)">
+                <i class="material-icons">add</i>
+              </a>
+            </div>
             <p><em>{{comp.note}}</em></p>
           </div>
         </li>
