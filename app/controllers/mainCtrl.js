@@ -1,5 +1,5 @@
 app
-  .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory) {
+  .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory, $location) {
     console.log('mainCtrl firing')
     $scope.weeks = ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9", "Week 10", "Week 11", "Week 12", "Week 13", "Week 14", "Week 15", "Week 16"]
     // $scope.uid = firebase.auth().currentUser.uid;
@@ -39,6 +39,7 @@ app
 
       $scope.showStats($scope.nameX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
       $scope.showStats($scope.nameY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
+
     }
 
 
@@ -48,8 +49,6 @@ app
         if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
           $scope[output] = $scope.playerList[i]
           $scope[name] = ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)
-          console.log('name:', $scope[name])
-          console.log('player:', $scope[output]['player'])
         }
       }
     }
@@ -111,8 +110,6 @@ app
                 [$scope.seasonProjectedX, $scope.seasonPtsX, $scope.weekProjectedX, $scope.weekPtsX],
                 [$scope.seasonProjectedY, $scope.seasonPtsY, $scope.weekProjectedY, $scope.weekPtsY]
               ]
-
-              console.log($scope[seasonProj], $scope[season], $scope[weekProj], $scope[week])
             }
           }
         })
