@@ -17,8 +17,9 @@ app
       limit: 5,  // max amount of results
     });
 
-      // _____ bar chart labels _____
-    $scope.labels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
+      // _____ radar/bar chart labels _____
+    $scope.barLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
+    $scope.radarLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
 
 
     $scope.juxtaPose = function() {
