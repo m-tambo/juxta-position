@@ -22,7 +22,7 @@ app
     $scope.addNote = function (id, note) {
       firebaseFactory.patchNote(id, note)
         .then(() => {
-          $scope.comps[id].note = note
+          $scope.comps[id].note = note // dynamically adds the note to the dom
         })
     }
 
