@@ -23,7 +23,7 @@
             <span> You chose {{comp.choice}}.</span>
             <br />
             <input type="text" ng-model="newNote">
-            <button ng-click="addNote(newNote)">Save note</button>
+            <button ng-click="addNote(key, newNote)">Save note</button>
             <a class="tooltipped" data-position="bottom" data-delay="50" data-tooltip="I am tooltip">Add a note.</a>
               <i class="material-icons " ng-if="comp.note === undefined">note</i>
             <p><em>{{comp.note}}</em></p>

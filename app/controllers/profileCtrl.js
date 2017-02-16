@@ -5,7 +5,6 @@ app
     $scope.user = firebase.auth().currentUser
     $scope.profilePic = 'http://nexus1492.eu/wp-content/plugins/smartcat_our_team/inc/img/noprofile.jpg'
 
-
     firebaseFactory.getComps()
       .then((comps) => {
         console.log(comps)
@@ -23,7 +22,7 @@ app
     $scope.addNote = function (id, note) {
       firebaseFactory.patchNote(id, note)
         .then(() => {
-
+          console.log('note added')
         })
     }
 

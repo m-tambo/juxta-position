@@ -30,9 +30,12 @@ app
       },
 
       patchNote : (id, note) => {
-        let data = {"note": note}
+        let data = {"note": `${note}`}
         return $http
           .patch(`https://juxta-position.firebaseio.com/comps/${id}.json`, data)
+          .then(() => {
+            console.log('note patched', data)
+          })
       }
 
     }

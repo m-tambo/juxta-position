@@ -15,8 +15,6 @@ dir
           $('.button-collapse').sideNav('hide');
         }
 
-        $(".button-collapse").sideNav();
-
         $scope.goToLogin = function () {
           console.log('go to login')
           document.querySelector('.login').removeAttribute('hidden');
@@ -36,6 +34,9 @@ dir
           $location.path('/')
           $scope.hideNav()
         }
+
+        $(".button-collapse").sideNav();
+
       },
 
       resolve: {
