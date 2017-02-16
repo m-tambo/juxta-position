@@ -117,7 +117,10 @@ app
 
       // _______ post to firebase _______
     $scope.postComparison = function (pick) {
+      var $toastContent = $('<span>Juxtaposition saved to your profile.</span>');
+      Materialize.toast($toastContent, 4500, 'rounded');
       firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, $scope.uid)
+        .then(() => $location.path('/'))
     }
 
     // _____ materialize stuff _____
