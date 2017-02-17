@@ -22,7 +22,7 @@
             <span> You chose {{comp.choice}}.</span>
               <a href="" ng-click="deleteComp(key)"><i class="material-icons right">delete</i></a>
             <div class="newNote" ng-if="comp.note === undefined"> <!-- only shows if note doesn't exist -->
-              <input class="left-align" type="text" ng-model="newNote">
+              <input class="left-align" type="text" ng-model="newNote" placeholder="comment">
 
               <a class="tooltipped right-align btn-floating btn-small waves-effect waves-light blue" data-position="bottom" data-delay="50" data-tooltip="Add a note" ng-click="addNote(key, newNote)">
                 <i class="material-icons">add</i>
