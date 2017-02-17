@@ -49,3 +49,12 @@ form {
   margin-top: none;
   padding: 1% 1% 25% 1%;
 }
+
+
+/************
+  carousel
+************/
+
+.carousel.carousel-slider .carousel-item {
+  min-height: 600px;
+}
