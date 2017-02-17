@@ -1,7 +1,6 @@
 app
   .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory, $location) {
     console.log('mainCtrl firing')
-    // $scope.weeks = ["Week 1", "Week 2", "Week 3", "Week 4", "Week 5", "Week 6", "Week 7", "Week 8", "Week 9", "Week 10", "Week 11", "Week 12", "Week 13", "Week 14", "Week 15", "Week 16"]
     // $scope.uid = firebase.auth().currentUser.uid;
     $scope.playerList = players;
 
@@ -44,8 +43,8 @@ app
     }
 
 
+      // ____ find input player in playerList, set player object to output ____
     $scope.setPlayers = function (input, output, name) {
-    // ____ find input player in playerList, set player object to output ____
       for (let i = 0; i < $scope.playerList.length; i++) {
         if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
           $scope[output] = $scope.playerList[i]
@@ -124,9 +123,12 @@ app
         .then(() => $location.path('/'))
     }
 
-    // _____ materialize stuff _____
+      // _____ materialize stuff _____
     $('select').material_select();
 
     $('.carousel.carousel-slider').carousel({fullWidth: true});
+
+    $('select').change((e) => $scope.selected = e.target.value) // setting the selected week to $scope.selected
+
 
   })
