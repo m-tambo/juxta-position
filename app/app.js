@@ -21,7 +21,7 @@ app
           }
         }
       })
-      .when('/juxta/:nameX/:nameY/:week', {
+      .when('/juxta/:paramX/:paramY/:week', {
         controller: "juxtaCtrl",
         templateUrl: "/app/partials/juxta.html"
         // resolve: {

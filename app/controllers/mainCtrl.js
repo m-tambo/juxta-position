@@ -1,5 +1,5 @@
 app
-  .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory, $location) {
+  .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory, $location, $route) {
     console.log('mainCtrl firing')
     // $scope.uid = firebase.auth().currentUser.uid;
     $scope.playerList = players;
@@ -16,117 +16,47 @@ app
       limit: 5,  // max amount of results
     });
 
-      // _____ radar/bar chart labels _____
-    $scope.barLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
-    $scope.radarLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
-
-
     $scope.juxtaPose = function() {
       $scope.inputx = document.querySelector('.input-x').value  // capture the autocomplete values
       $scope.inputy = document.querySelector('.input-y').value  // capture the autocomplete values
 
-      $scope.setPlayers('inputx', 'playerX', 'nameX');
-      $scope.setPlayers('inputy', 'playerY', 'nameY');
+      $scope.setPlayers('inputx', 'playerX', 'nameX', 'paramX');
+      $scope.setPlayers('inputy', 'playerY', 'nameY', 'paramY');
 
       $scope.showJuxtaposition();
-      $scope.series = [$scope.playerX.player.FirstName, $scope.playerY.player.FirstName]  // setting series names for bar chart
-
-      $scope.showProjections($scope.nameX, 'projectionsX');  // find playerX projections, set obj to var
-      $scope.showProjections($scope.nameY, 'projectionsY');  // find playerY projections, set obj to var
-
-      $scope.showRankings($scope.nameX, 'rankingsX', 'positionXrank')
-      $scope.showRankings($scope.nameY, 'rankingsY', 'positionYrank')
-
-      $scope.showStats($scope.nameX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
-      $scope.showStats($scope.nameY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
 
     }
 
 
       // ____ find input player in playerList, set player object to output ____
-    $scope.setPlayers = function (input, output, name) {
+    $scope.setPlayers = function (input, output, name, comboName) {
       for (let i = 0; i < $scope.playerList.length; i++) {
         if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
           $scope[output] = $scope.playerList[i]
           $scope[name] = ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)
+          $scope[comboName] = ($scope.playerList[i].player.FirstName + "+" + $scope.playerList[i].player.LastName)
         }
       }
     }
 
-
     $scope.showJuxtaposition = function () {
-      if ($scope.playerX === undefined || $scope.playerY === undefined) {
-        alert("To see comparison, enter two valid Player names")
+      if ($scope.playerX === undefined || $scope.playerY === undefined || $scope.selected === undefined) {
+        alert("Please enter valid Player names and select a week")
       }
       else {
-        document.querySelector('.player-versus').removeAttribute('hidden')
-        document.querySelector('.table').removeAttribute('hidden')
-        document.querySelector('.carousel-slider').removeAttribute('hidden')
-        document.querySelector('.choice-btn').removeAttribute('hidden')
-        document.querySelector('.player-search').setAttribute('hidden', 'hidden')
+        $location.url(`/juxta/${$scope.nameX}/${$scope.nameY}/${$scope.selected}`)
+
+        // document.querySelector('.player-versus').removeAttribute('hidden')
+        // document.querySelector('.table').removeAttribute('hidden')
+        // document.querySelector('.carousel-slider').removeAttribute('hidden')
+        // document.querySelector('.choice-btn').removeAttribute('hidden')
+        // document.querySelector('.player-search').setAttribute('hidden', 'hidden')
       }
     }
 
-
-    $scope.showProjections = function (guy, letter) {
-      apiFactory.getNerdProjections()  // (guy.Position, [week#])
-        .then((projections) => {
-          for (i = 0; i < projections.length; i++) {
-            if (projections[i].displayName === guy) {   // find matching player
-              $scope[letter] = projections[i]
-              console.log($scope[letter])
-              console.log('good')
-            }
-          }
-        })
-    }
-
-
-    $scope.showRankings = function (dude, letter, pos) {
-      apiFactory.getNerdRankings() // (dude, [week#])
-        .then((rankings) => {
-          for (j = 0; j < rankings.length; j++) {
-            if (rankings[j].name === dude) {   // find matching player
-              $scope[letter] = rankings[j]
-              $scope[pos] = j + 1
-              console.log('position rank:', $scope[pos], 'rankings: ', $scope[letter])
-            }
-          }
-        })
-    }
-
-
-    $scope.showStats = function (guy, seasonProj, season, weekProj, week) {
-      apiFactory.getNflStats()
-        .then((stats) => {
-          for (k = 0; k < stats.length; k++) {
-            if (stats[k].name === guy) {  // find matching player
-              $scope[seasonProj] = stats[k].seasonProjectedPts
-              $scope[season] = stats[k].seasonPts
-              $scope[weekProj] = stats[k].weekProjectedPts
-              $scope[week] = stats[k].weekPts
-
-              $scope.data = [
-                [$scope.seasonProjectedX, $scope.seasonPtsX, $scope.weekProjectedX, $scope.weekPtsX],
-                [$scope.seasonProjectedY, $scope.seasonPtsY, $scope.weekProjectedY, $scope.weekPtsY]
-              ]
-            }
-          }
-        })
-    }
-
-      // _______ post to firebase _______
-    $scope.postComparison = function (pick) {
-      var $toastContent = $('<span>Juxtaposition saved to your profile.</span>');
-      Materialize.toast($toastContent, 4500, 'rounded');
-      firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, $scope.uid)
-        .then(() => $location.path('/'))
-    }
 
       // _____ materialize stuff _____
     $('select').material_select();
-
-    $('.carousel.carousel-slider').carousel({fullWidth: true});
 
     $('select').change((e) => $scope.selected = e.target.value) // setting the selected week to $scope.selected
 
