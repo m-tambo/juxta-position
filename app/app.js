@@ -21,6 +21,15 @@ app
           }
         }
       })
+      .when('/juxta/:nameX/:nameY/:week', {
+        controller: "juxtaCtrl",
+        templateUrl: "/app/partials/juxta.html"
+        // resolve: {
+        //   juxta: function (apiFactory, $route) {
+        //     return
+        //   }
+        // }
+      })
       .when('/profile', {
         controller: "profileCtrl",
         templateUrl: "/app/partials/profile.html",
