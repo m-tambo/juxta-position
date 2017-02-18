@@ -43,4 +43,5 @@ app
         redirectTo: "/main"
       })
 
-  });
+  })
+  .run($rootScope => firebase.auth().onAuthStateChanged(user => $rootScope.user = user))  // magical line of code $sscott

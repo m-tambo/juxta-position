@@ -41,7 +41,7 @@ app
             if (user) {
               resolve(user)
             } else {
-              reject()
+              reject('Not logged in')
             }
           })
         })

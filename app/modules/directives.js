@@ -8,8 +8,15 @@ dir
       controller: function($scope, authFactory, $location) {
         console.log('navbar controller firing')
 
-        $scope.user = firebase.auth().currentUser
-        console.log($scope.user)
+        // authFactory.getUser()
+        //   .then(user => {
+        //     console.log('USER', user)
+        //     $scope.user = user
+        //   })
+        //   .catch((err) => {
+        //     $scope.user = null
+        //     console.error(err)
+        //   })
 
         $scope.hideNav = function () {  // clear the nav bar when a link is selected
           $('.button-collapse').sideNav('hide');
