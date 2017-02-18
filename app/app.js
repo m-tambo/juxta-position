@@ -53,4 +53,5 @@ app
       })
 
   })
-  .run($rootScope => firebase.auth().onAuthStateChanged(user => $rootScope.user = user))  // magical line of code $sscott
+
+  .run($rootScope => firebase.auth().onAuthStateChanged(user => $rootScope.user = user))  // $sscott magic

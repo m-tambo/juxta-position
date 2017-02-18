@@ -7,7 +7,7 @@ app
     $scope.playerNames = {}  // making an object with just player names for auto-complete function
     for (let j = 0; j < players.length; j++) {
       let name = ($scope.playerList[j].player.FirstName + " " + $scope.playerList[j].player.LastName)
-      $scope.playerNames[name] = null
+      $scope.playerNames[name] = null;
     }
 
       // ____ auto-complete function ____
