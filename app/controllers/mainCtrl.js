@@ -1,10 +1,10 @@
 app
-  .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory, $location, $route) {
+  .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory, $location) {
     console.log('mainCtrl firing')
     // $scope.uid = firebase.auth().currentUser.uid;
     $scope.playerList = players;
 
-    $scope.playerNames = {}  // making an object with just player names for auto-complete function
+    $scope.playerNames = {}  // create object with player names and null values for auto-complete function
     for (let j = 0; j < players.length; j++) {
       let name = ($scope.playerList[j].player.FirstName + " " + $scope.playerList[j].player.LastName)
       $scope.playerNames[name] = null;
@@ -20,8 +20,8 @@ app
       $scope.inputx = document.querySelector('.input-x').value  // capture the autocomplete values
       $scope.inputy = document.querySelector('.input-y').value  // capture the autocomplete values
 
-      $scope.setPlayers('inputx', 'playerX', 'nameX', 'paramX');
-      $scope.setPlayers('inputy', 'playerY', 'nameY', 'paramY');
+      $scope.setPlayers('inputx', 'playerX', 'nameX');
+      $scope.setPlayers('inputy', 'playerY', 'nameY');
 
       $scope.showJuxtaposition();
 
@@ -34,7 +34,6 @@ app
         if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
           $scope[output] = $scope.playerList[i]
           $scope[name] = ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)
-          $scope[comboName] = ($scope.playerList[i].player.FirstName + "+" + $scope.playerList[i].player.LastName)
         }
       }
     }
@@ -45,12 +44,6 @@ app
       }
       else {
         $location.url(`/juxta/${$scope.nameX}/${$scope.nameY}/${$scope.selected}`)
-
-        // document.querySelector('.player-versus').removeAttribute('hidden')
-        // document.querySelector('.table').removeAttribute('hidden')
-        // document.querySelector('.carousel-slider').removeAttribute('hidden')
-        // document.querySelector('.choice-btn').removeAttribute('hidden')
-        // document.querySelector('.player-search').setAttribute('hidden', 'hidden')
       }
     }
 

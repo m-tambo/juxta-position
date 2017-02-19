@@ -11,18 +11,6 @@ app
 
     $scope.series = [$routeParams.paramX, $routeParams.paramY]  // setting series names for bar chart
 
-    $scope.showProjections($routeParams.paramX, 'projectionsX');  // find playerX projections, set obj to var
-    $scope.showProjections($routeParams.paramY, 'projectionsY');  // find playerY projections, set obj to var
-
-    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank')
-    $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank')
-
-    $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
-    $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
-
-
-
-
   // _______ functions ______
 
     $scope.showProjections = function (guy, letter) {
@@ -80,6 +68,15 @@ app
         .then(() => $location.path('/'))
     }
 
+
+    $scope.showProjections($routeParams.paramX, 'projectionsX');  // find playerX projections, set obj to var
+    $scope.showProjections($routeParams.paramY, 'projectionsY');  // find playerY projections, set obj to var
+
+    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank')
+    $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank')
+
+    $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
+    $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
 
 
     // _____ materialize stuff _____
