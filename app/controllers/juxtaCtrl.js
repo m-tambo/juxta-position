@@ -1,24 +1,24 @@
 app
-  .controller('juxtaCtrl', function($scope, authFactory, $location, $route) {
+  .controller('juxtaCtrl', function($scope, authFactory, apiFactory, $location, $routeParams) {
     console.log('juxtaCtrl firing')
 
-    console.log($route.paramX, $route.paramY)
+    console.log($routeParams.paramX, $routeParams.paramY, $routeParams.week)
 
       // _____ radar/bar chart labels _____
     $scope.barLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
     $scope.radarLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
 
 
-    $scope.series = [$scope.playerX.player.FirstName, $scope.playerY.player.FirstName]  // setting series names for bar chart
+    $scope.series = [$routeParams.paramX, $routeParams.paramY]  // setting series names for bar chart
 
-    $scope.showProjections($scope.nameX, 'projectionsX');  // find playerX projections, set obj to var
-    $scope.showProjections($scope.nameY, 'projectionsY');  // find playerY projections, set obj to var
+    $scope.showProjections($routeParams.paramX, 'projectionsX');  // find playerX projections, set obj to var
+    $scope.showProjections($routeParams.paramY, 'projectionsY');  // find playerY projections, set obj to var
 
-    $scope.showRankings($scope.nameX, 'rankingsX', 'positionXrank')
-    $scope.showRankings($scope.nameY, 'rankingsY', 'positionYrank')
+    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank')
+    $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank')
 
-    $scope.showStats($scope.nameX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
-    $scope.showStats($scope.nameY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
+    $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
+    $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
 
 
 
@@ -76,7 +76,7 @@ app
     $scope.postComparison = function (pick) {
       var $toastContent = $('<span>Juxtaposition saved to your profile.</span>');
       Materialize.toast($toastContent, 4500, 'rounded');
-      firebaseFactory.postComp($scope.nameX, $scope.nameY, pick, $scope.uid)
+      firebaseFactory.postComp($routeParams.paramX, $routeParams.paramY, $routeParams.week, pick, $scope.uid)
         .then(() => $location.path('/'))
     }
 
