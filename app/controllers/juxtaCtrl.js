@@ -2,13 +2,12 @@ app
   .controller('juxtaCtrl', function($scope, authFactory, apiFactory, $location, $routeParams) {
     console.log('juxtaCtrl firing')
 
-    console.log($routeParams.paramX, $routeParams.paramY, $routeParams.week)
+    $scope.nameX = $routeParams.paramX
+    $scope.nameY = $routeParams.paramY
 
       // _____ radar/bar chart labels _____
     $scope.barLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
     $scope.radarLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
-
-
     $scope.series = [$routeParams.paramX, $routeParams.paramY]  // setting series names for bar chart
 
   // _______ functions ______

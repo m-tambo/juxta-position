@@ -13,7 +13,7 @@
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
-            <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
+            <p class="text-darken-6">{{posX}}, {{playerX.team.City}} {{teamX}}</p>
             <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5>
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
-            <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
+            <p class="text-darken-6">{{posY}}, {{playerY.team.City}} {{teamY}}</p>
             <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5>
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -97,13 +97,13 @@
     <!-- ______ player choice buttons _____ -->
   <div class="row choice-btn">
     <div class="col s3 offset-s3">
-      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameX)">{{playerX.player.LastName}}</button>
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameX)">{{nameX}}</button>
     </div>
-    <div class="col s2">
+    <div class="col s1">
       or
     </div>
     <div class="col s3">
-      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameY)">{{playerY.player.LastName}}</button>
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameY)">{{nameY}}</button>
     </div>
   </div>
 </div>
