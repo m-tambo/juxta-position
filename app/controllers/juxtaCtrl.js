@@ -13,14 +13,17 @@ app
 
   // _______ functions ______
 
-    $scope.showProjections = function (guy, letter) {
-      apiFactory.getNerdProjections()  // (guy.Position, [week#])
+    $scope.showProjections = function (guy, letter, week, team, pos) {
+      apiFactory.getNerdProjections()  // (week, pos)
         .then((projections) => {
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === guy) {   // find matching player
               $scope[letter] = projections[i]
+              $scope[team] = projections[i].team
+              $scope[pos] = projections[i].position
               console.log($scope[letter])
-              console.log('good')
+              console.log($scope[team])
+              console.log($scope[pos])
             }
           }
         })
@@ -69,8 +72,8 @@ app
     }
 
 
-    $scope.showProjections($routeParams.paramX, 'projectionsX');  // find playerX projections, set obj to var
-    $scope.showProjections($routeParams.paramY, 'projectionsY');  // find playerY projections, set obj to var
+    $scope.showProjections($routeParams.paramX, 'projectionsX', $routeParams.week, 'teamX', 'posX');  // find playerX projections, set obj to var
+    $scope.showProjections($routeParams.paramY, 'projectionsY', $routeParams.week, 'teamY', 'posY');  // find playerY projections, set obj to var
 
     $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank')
     $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank')
