@@ -24,6 +24,7 @@ app
       .when('/juxta/:paramX/:paramY/:week', {
         controller: "juxtaCtrl",
         templateUrl: "/app/partials/juxta.html"
+
         // resolve: {
         //   juxta: function (apiFactory, $route) {
         //     return
