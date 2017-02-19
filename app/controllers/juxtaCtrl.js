@@ -1,9 +1,10 @@
 app
-  .controller('juxtaCtrl', function($scope, authFactory, apiFactory, $location, $routeParams) {
+  .controller('juxtaCtrl', function($scope, authFactory, apiFactory, firebaseFactory, $location, $routeParams) {
     console.log('juxtaCtrl firing')
 
     $scope.nameX = $routeParams.paramX
     $scope.nameY = $routeParams.paramY
+    // $scope.uid = firebase.auth().currentUser.uid
 
       // _____ radar/bar chart labels _____
     $scope.barLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
