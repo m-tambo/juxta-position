@@ -1,10 +1,11 @@
 app
   .factory('firebaseFactory', function($http) {
     return {
-      postComp : (nameX, nameY, choice, uid) => {
+      postComp : (nameX, nameY, week, choice, uid) => {
         let newComp = {
           nameX: nameX,
           nameY: nameY,
+          week: week,
           choice: choice,
           uid: uid
         };
