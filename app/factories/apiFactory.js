@@ -46,11 +46,21 @@ app
         })
     };
 
+    let getSchedule = function () {
+      return $http
+        // .get('https://www.fantasyfootballnerd.com/service/schedule/json/iz33m4ducg4h/')
+        .get('/data/schedule.json')
+        .then((res) => {
+          // console.log(res.data.Schedule)
+          return res.data.Schedule
+        })
+    }
     return {
       getPlayers,
       getNerdProjections,
       getNerdRankings,
       getNflStats,
-      getNflLeaders
+      getNflLeaders,
+      getSchedule
     }
   })
