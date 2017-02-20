@@ -16,7 +16,7 @@
         <li ng-repeat="(key, comp) in comps">
             <div class="collapsible-header" ng-click='openComp()'>
               <i class="material-icons">assessment</i>
-              You compared <b>{{comp.nameX}}</b> and <b>{{comp.nameY}}</b>.
+              <b>{{comp.nameX}}</b> vs <b>{{comp.nameY}}</b> in <b>Week {{comp.week}}</b>.
             </div>
           <div class="collapsible-body">
             <span> You chose {{comp.choice}}.</span>
