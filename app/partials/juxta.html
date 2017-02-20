@@ -13,7 +13,7 @@
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
-            <p class="text-darken-6">{{rankingsX.position}}, {{playerX.team.City}} {{rankingsX.team}}</p>
+            <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
             <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5>
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
-            <p class="text-darken-6">{{rankingsY.position}}, {{playerY.team.City}} {{rankingsY.team}}</p>
+            <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
             <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5>
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -44,6 +44,8 @@
     </div>
 
   </div>  <!-- _____ end of player cards _____ -->
+
+  <h4 class="center">Week {{week}}</h4>
 
   <div class="row carousel carousel-slider center" data-indicators="true">
         <!-- ______ radar chart ______ -->
