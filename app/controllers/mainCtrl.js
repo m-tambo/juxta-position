@@ -10,40 +10,25 @@ app
       $scope.playerNames[name] = null;
     }
 
-      // ____ auto-complete function ____
+  // ____ auto-complete function ____
     $('input.autocomplete').autocomplete({
       data: $scope.playerNames,  // list of player names
       limit: 5,  // max amount of results
     });
 
     $scope.juxtaPose = function() {
-      $scope.inputx = document.querySelector('.input-x').value  // capture the autocomplete values
-      $scope.inputy = document.querySelector('.input-y').value  // capture the autocomplete values
+      $scope.inputx = document.querySelector('.input-x').value  // capture autocompleted name X
+      $scope.inputy = document.querySelector('.input-y').value  // capture autocompleted name Y
 
-      $scope.setPlayers('inputx', 'playerX', 'nameX');
-      $scope.setPlayers('inputy', 'playerY', 'nameY');
-
-      $scope.showJuxtaposition();
-
-    }
-
-
-      // ____ find input player in playerList, set player object to output ____
-    $scope.setPlayers = function (input, output, name, comboName) {
-      for (let i = 0; i < $scope.playerList.length; i++) {
-        if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
-          $scope[output] = $scope.playerList[i]
-          $scope[name] = ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)
-        }
-      }
+      $scope.showJuxtaposition();  // go to player comparison
     }
 
     $scope.showJuxtaposition = function () {
-      if ($scope.playerX === undefined || $scope.playerY === undefined || $scope.selected === undefined) {
+      if ($scope.inputx === undefined || $scope.inputy === undefined || $scope.selected === undefined) {
         alert("Please enter valid Player names and select a week")
       }
       else {
-        $location.url(`/juxta/${$scope.nameX}/${$scope.nameY}/${$scope.selected}`)
+        $location.url(`/juxta/${$scope.inputx}/${$scope.inputy}/${$scope.selected}`)
       }
     }
 
