@@ -9,7 +9,7 @@
   </div>
   <div class="divider"></div>
 
-  <div class="my-comps">
+  <div class="my-comps container">
     <div>
       <h3>Saved comparisons</h3>
       <ul class="collapsible" data-collapsible="accordion">
@@ -20,11 +20,12 @@
             </div>
           <div class="collapsible-body">
             <span> You chose {{comp.choice}}.</span>
+            <a ng-click="reviewComp(key)">  [ Review ]</a>
               <a href="" ng-click="deleteComp(key)"><i class="material-icons right">delete</i></a>
-            <div class="newNote" ng-if="comp.note === undefined"> <!-- only shows if note doesn't exist -->
-              <input class="left-align" type="text" ng-model="newNote" placeholder="comment">
+            <div class="newNote row" ng-if="comp.note === undefined"> <!-- only shows if note doesn't exist -->
+              <input class="left-align col s5 offset-s1" type="text" ng-model="newNote" placeholder="comment">
 
-              <a class="tooltipped right-align btn-floating btn-small waves-effect waves-light blue" data-position="bottom" data-delay="50" data-tooltip="Add a note" ng-click="addNote(key, newNote)">
+              <a class="tooltipped btn-floating btn-small waves-effect waves-light blue" data-position="bottom" data-delay="50" data-tooltip="Add a note" ng-click="addNote(key, newNote)">
                 <i class="material-icons">add</i>
               </a>
 
