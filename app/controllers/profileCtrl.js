@@ -1,5 +1,5 @@
 app
-  .controller('profileCtrl', function($scope, firebaseFactory, user) {
+  .controller('profileCtrl', function($scope, firebaseFactory, user, $location) {
     console.log('profile controller firing')
 
     $scope.user = firebase.auth().currentUser
@@ -25,6 +25,12 @@ app
           $scope.comps[id].note = note // dynamically adds the note to the dom
         })
     }
+
+    $scope.reviewComp = function (x, y, w) {
+      $location.url(`/juxta/${x}/${y}/${w}`)
+
+    }
+
 
     // _____ materialize stuff _____
     $scope.openComp = function () {
