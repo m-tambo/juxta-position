@@ -72,9 +72,18 @@ app
         })
     }
 
-    $scope.getOpponents = function (team, week) {
+    $scope.getOpponents = function (team, opp) {
       apiFactory.getSchedule()
-      .then(() => console.log(team, week))
+      .then((schedule) =>  {
+        for (i = 0; i < schedule.length; i++) {
+          if ((schedule[i].gameWeek === $scope.week) && (schedule[i].homeTeam === team)) {
+            $scope[opp] = schedule[i].awayTeam  // if home team
+          } else
+          if ((schedule[i].gameWeek === $scope.week) && (schedule[i].awayTeam === team)) {
+            $scope[opp] = schedule[i].homeTeam  // if away team
+          }
+        }
+      })
     }
 
     $scope.postComparison = function (pick) {  // post to firebase
@@ -97,6 +106,9 @@ app
 
     $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
     $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
+
+    $scope.getOpponents($scope.playerX.team.Abbreviation, 'opponentX')  // set opponent to $scope.opponentX
+    $scope.getOpponents($scope.playerY.team.Abbreviation, 'opponentY')  // set opponent to $scope.opponentY
 
 
   // _____ materialize stuff _____
