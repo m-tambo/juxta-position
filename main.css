@@ -8,6 +8,7 @@
   background-size: cover;
   margin-top: none;
   padding: 1% 1% 25% 1%;
+  opacity: .9;
 }
 
 .main-header {
@@ -66,4 +67,13 @@ form {
 
 .carousel.carousel-slider .carousel-item {
   min-height: 600px;
+}
+
+
+/************
+  profile
+************/
+
+.comp-note {
+  color: orange;
 }
