@@ -11,7 +11,7 @@
             <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
             <img src="{{logoX}}">  <!-- team logo -->
             <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
-            <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5>
+            <!-- <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5> -->
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
         <div class="card-reveal">
@@ -28,7 +28,7 @@
             <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
             <img src="{{logoY}}">  <!-- team logo -->
             <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
-            <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5>
+            <!-- <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5> -->
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
         <div class="card-reveal">
@@ -48,14 +48,16 @@
       <div class="chart col s6 offset-s3">
         <canvas id="radar" class="chart chart-radar" chart-data="data" chart-options="options" chart-series="series" chart-labels="radarLabels">
         </canvas>
+        <h4>Expert Rankings</h4>
       </div>
     </div>
 
           <!-- ______ bar chart ______ -->
-    <div class="carousel-item orange lighten-6" href="#two!">
+    <div class="carousel-item orange lighten-4" href="#two!">
       <div class="chart col s10 offset-s1">
         <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="barLabels" chart-series="series">
         </canvas>
+        <h4>Projected Points</h4>
       </div>
     </div>
 
@@ -73,21 +75,22 @@
           <tbody>
             <tr>
               <td>Opponent:</td>
-              <td><i class="material-icons">done</i></td>
-              <td><i class="material-icons">done</i></td>
+              <td>{{opponentX}}</td>
+              <td>{{opponentY}}</td>
             </tr>
             <tr>
               <td>Projected points:</td>
-              <td ng-if="weekProjectedX > weekProjectedY"><i class="material-icons">done</i></td>
-              <td ng-if="weekProjectedX < weekProjectedY"><i class="material-icons">done</i></td>
+              <td>{{weekProjectedX}}</td>
+              <td>{{weekProjectedY}}</td>
             </tr>
             <tr>
-              <td>Expert ranking:</td>
-              <td ng-if="positionXrank < positionYrank"><i class="material-icons">done</i></td>
-              <td ng-if="positionXrank > positionYrank"><i class="material-icons">done</i></td>
+              <td>Combined Expert Ranking:</td>
+              <td>{{positionXrank}}</td>
+              <td>{{positionYrank}}</td>
             </tr>
           </tbody>
         </table>
+      <h4>Breakdown</h4>
     </div>    <!-- ______ end of comparison table ______ -->
   </div>  <!-- ______ end of carousel ______ -->
 
