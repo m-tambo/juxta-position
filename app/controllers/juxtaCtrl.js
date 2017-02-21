@@ -32,9 +32,7 @@ app
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === guy) {   // find matching player
               $scope[letter] = projections[i]
-              // console.log($scope[letter])
-
-              $scope.getOpponents(projections[i].team, $scope.week)
+              console.log($scope[letter])
             }
           }
         })
