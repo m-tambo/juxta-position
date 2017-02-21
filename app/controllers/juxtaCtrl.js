@@ -45,7 +45,6 @@ app
             if (rankings[j].name === dude) {   // find matching player
               $scope[letter] = rankings[j]
               $scope[pos] = j + 1
-              // console.log('position rank:', $scope[pos], 'rankings: ', $scope[letter])
             }
           }
         })
