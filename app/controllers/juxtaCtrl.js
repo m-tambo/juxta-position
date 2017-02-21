@@ -98,6 +98,10 @@ app
     $scope.setPlayers('nameX', 'playerX') // define object $scope.playerX
     $scope.setPlayers('nameY', 'playerY') // define object $scope.playerY
 
+    $scope.logoX = `/images/logos/${$scope.playerX.team.Abbreviation}.png`
+    $scope.logoY = `/images/logos/${$scope.playerY.team.Abbreviation}.png`
+    console.log($scope.logoX)
+
     $scope.showProjections($routeParams.paramX, 'projectionsX');  // find playerX projections, set obj to var
     $scope.showProjections($routeParams.paramY, 'projectionsY');  // find playerY projections, set obj to var
 

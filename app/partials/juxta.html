@@ -8,11 +8,9 @@
       <!-- _____ player X card _____ -->
     <div class="player-x-display">
       <div class="card col s5">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
-        </div>
-        <div class="card-content">
+        <div class="center card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
+            <img src="{{logoX}}">  <!-- team logo -->
             <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
             <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5>
               <!-- <p><a href="#">This is a link</a></p> -->
@@ -27,11 +25,9 @@
       <!-- _____ player Y card _____ -->
     <div class="player-y-display">
       <div class="card col s5 offset-s2">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
-        </div>
-        <div class="card-content">
+        <div class="center card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
+            <img src="{{logoY}}">  <!-- team logo -->
             <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
             <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5>
               <!-- <p><a href="#">This is a link</a></p> -->
