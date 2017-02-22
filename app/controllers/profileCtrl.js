@@ -31,6 +31,9 @@ app
 
     }
 
+    $scope.changePic = function () {
+      console.log('works')
+    }
 
     // _____ materialize stuff _____
     $scope.openComp = function () {
