@@ -23,5 +23,8 @@ app
         .then(() => {
           $location.path('/profile')
         })
+        .catch(() => {
+          alert('Invalid username or password')
+        })
     }
 })

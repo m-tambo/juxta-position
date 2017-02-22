@@ -7,7 +7,6 @@ app
     $scope.nameX = $routeParams.paramX // player x name
     $scope.nameY = $routeParams.paramY // player y name
     $scope.week = $routeParams.week
-    // $scope.uid = firebase.auth().currentUser.uid
 
 
   // _____ radar/bar chart labels _____
@@ -32,7 +31,6 @@ app
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === guy) {   // find matching player
               $scope[letter] = projections[i]
-              console.log($scope[letter])
             }
           }
         })
