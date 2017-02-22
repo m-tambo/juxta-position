@@ -11,8 +11,8 @@ app
 
 
   // _____ radar/bar chart labels _____
+    $scope.radarLabels = ["Average projection", "High projection", "Low projection"]
     $scope.barLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
-    $scope.radarLabels = ["Projected Season Pts", "Actual Season Pts", "Projected Weekly Pts", "Actual Weekly Pts"]
     $scope.series = [$routeParams.paramX, $routeParams.paramY]  // setting series names for bar chart
 
 
@@ -43,8 +43,13 @@ app
         .then((rankings) => {
           for (j = 0; j < rankings.length; j++) {
             if (rankings[j].name === dude) {   // find matching player
-              $scope[letter] = rankings[j]
-              $scope[pos] = j + 1
+              $scope[letter] = rankings[j];
+              $scope[pos] = j + 1;
+
+              $scope.radarData = [  // inject stat variables into graph
+                [$scope.rankingsX.ppr, $scope.rankingsX.pprHigh, $scope.rankingsX.pprLow],
+                [$scope.rankingsY.ppr, $scope.rankingsY.pprHigh, $scope.rankingsY.pprLow]
+              ]
             }
           }
         })
@@ -53,15 +58,14 @@ app
     $scope.showStats = function (guy, seasonProj, season, weekProj, week) {
       apiFactory.getNflStats()
         .then((stats) => {
-          console.log(stats)
           for (k = 0; k < stats.length; k++) {
             if (stats[k].name === guy) {  // find matching player
-              $scope[seasonProj] = stats[k].seasonProjectedPts  // assign stats to variables
-              $scope[season] = stats[k].seasonPts
-              $scope[weekProj] = stats[k].weekProjectedPts
-              $scope[week] = stats[k].weekPts
+              $scope[seasonProj] = stats[k].seasonProjectedPts;  // assign stats to variables
+              $scope[season] = stats[k].seasonPts;
+              $scope[weekProj] = stats[k].weekProjectedPts;
+              $scope[week] = stats[k].weekPts;
 
-              $scope.data = [  // inject stat variables into graph
+              $scope.barData = [  // inject stat variables into graph
                 [$scope.seasonProjectedX, $scope.seasonPtsX, $scope.weekProjectedX, $scope.weekPtsX],
                 [$scope.seasonProjectedY, $scope.seasonPtsY, $scope.weekProjectedY, $scope.weekPtsY]
               ]
