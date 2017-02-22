@@ -23,17 +23,18 @@ dir
         }
 
         $scope.goToLogin = function () {
-          console.log('go to login')
-          document.querySelector('.login').removeAttribute('hidden');
-          document.querySelector('.register').setAttribute('hidden', 'hidden');
           $scope.hideNav()
+          console.log('go to login')
+          $location.url('/login')
+          $scope.login = true
+          $scope.register = false
         };
 
         $scope.goToRegister = function () {
-          console.log('go to register')
-          document.querySelector('.login').setAttribute('hidden', 'hidden');
-          document.querySelector('.register').removeAttribute('hidden');
+          $scope.register = true
+          $scope.login = false
           $scope.hideNav()
+          console.log('go to register')
         };
 
         $scope.signOut = function () {

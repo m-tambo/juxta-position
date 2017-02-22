@@ -3,12 +3,12 @@ app
     console.log('login controller firing')
 
       // show login page, remove register page, if showing
-    document.querySelector('.login').removeAttribute('hidden')
-    document.querySelector('.register').setAttribute('hidden', 'hidden')
+    $scope.login = true
+    $scope.register = false
 
     $scope.goToRegister = function () {
-      document.querySelector('.login').setAttribute('hidden', 'hidden')
-      document.querySelector('.register').removeAttribute('hidden')
+      $scope.login = false
+      $scope.register = true
     };
 
     $scope.loginUser = function () {
