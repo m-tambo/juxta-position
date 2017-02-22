@@ -91,12 +91,12 @@ app
     $scope.postComparison = function (pick) {  // post to firebase
       var $toastContent = $('<span>Juxtaposition saved to your profile.</span>');  // toast
       Materialize.toast($toastContent, 4500, 'rounded');
-      firebaseFactory.postComp($routeParams.paramX, $routeParams.paramY, $routeParams.week, pick, $scope.uid)
+      firebaseFactory.postComp($routeParams.paramX, $routeParams.paramY, $routeParams.week, pick)
         .then(() => $location.path('/'))
     }
 
 
-  // ______ run functions _______
+  // ______ execute functions _______
     $scope.setPlayers('nameX', 'playerX') // define object $scope.playerX
     $scope.setPlayers('nameY', 'playerY') // define object $scope.playerY
 
