@@ -7,7 +7,6 @@ app
 
     firebaseFactory.getComps()
       .then((comps) => {
-        console.log(comps)
         $scope.comps = comps
       })
 

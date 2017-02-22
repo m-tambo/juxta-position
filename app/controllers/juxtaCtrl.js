@@ -53,6 +53,7 @@ app
     $scope.showStats = function (guy, seasonProj, season, weekProj, week) {
       apiFactory.getNflStats()
         .then((stats) => {
+          console.log(stats)
           for (k = 0; k < stats.length; k++) {
             if (stats[k].name === guy) {  // find matching player
               $scope[seasonProj] = stats[k].seasonProjectedPts  // assign stats to variables
@@ -95,14 +96,13 @@ app
     $scope.setPlayers('nameX', 'playerX') // define object $scope.playerX
     $scope.setPlayers('nameY', 'playerY') // define object $scope.playerY
 
-    $scope.logoX = `/images/logos/${$scope.playerX.team.Abbreviation}.png`
+    $scope.logoX = `/images/logos/${$scope.playerX.team.Abbreviation}.png`  // set team logos
     $scope.logoY = `/images/logos/${$scope.playerY.team.Abbreviation}.png`
-    console.log($scope.logoX)
 
     $scope.showProjections($routeParams.paramX, 'projectionsX');  // find playerX projections, set obj to var
     $scope.showProjections($routeParams.paramY, 'projectionsY');  // find playerY projections, set obj to var
 
-    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank')
+    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank')  // grab rankings
     $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank')
 
     $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
