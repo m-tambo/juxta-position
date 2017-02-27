@@ -4,8 +4,9 @@ app
 
     $scope.user = firebase.auth().currentUser
     $scope.profilePic = 'http://nexus1492.eu/wp-content/plugins/smartcat_our_team/inc/img/noprofile.jpg'
+    // $scope.profilePic = firebase.auth().currentUser.photoUrl
 
-    firebaseFactory.getComps()
+    firebaseFactory.getComps()  // get comparisons from firebase
       .then((comps) => {
         $scope.comps = comps
       })
@@ -13,15 +14,15 @@ app
     $scope.deleteComp = function (id) {
       console.log('delete')
       firebaseFactory.deleteComp(id)
-        .then(() => {
+        .then(() => {               // dynamically delete note from dom
           delete $scope.comps[id]  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/delete
         })
     }
 
     $scope.addNote = function (id, note) {
       firebaseFactory.patchNote(id, note)
-        .then(() => {
-          $scope.comps[id].note = note // dynamically adds the note to the dom
+        .then(() => {                   // dynamically adds the note to the dom
+          $scope.comps[id].note = note
         })
     }
 
@@ -31,6 +32,7 @@ app
     }
 
     $scope.changePic = function () {
+
       console.log('works')
     }
 
@@ -40,5 +42,6 @@ app
     }
 
     $('.tooltipped').tooltip({delay: 50})
+
 
   })
