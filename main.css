@@ -12,7 +12,7 @@ body {
   background-image: url('images/headToHead.jpg');
   background-size: cover;
   margin-top: none;
-  padding: 1% 1% 25% 1%;
+  padding: .5% 1% 25% 1%;
   opacity: .9;
 }
 
@@ -90,6 +90,10 @@ form {
 
 .comp-div {
   font-size: 1.15em;
+}
+
+.profile-pic {
+  max-width: 250px;
 }
 
 .profile-image {
