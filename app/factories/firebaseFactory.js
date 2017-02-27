@@ -1,9 +1,9 @@
 app
   .factory('firebaseFactory', function($http) {
-    let uid = firebase.auth().currentUser.uid
 
     return {
       postComp : (nameX, nameY, week, choice) => {
+        let uid = firebase.auth().currentUser.uid
         let newComp = {
           nameX: nameX,
           nameY: nameY,
@@ -19,6 +19,7 @@ app
       },
 
       getComps : () => {
+        let uid = firebase.auth().currentUser.uid
         return $http
           .get(`https://juxta-position.firebaseio.com/comps/${uid}.json`)
           .then((obj) => {
@@ -27,11 +28,13 @@ app
       },
 
       deleteComp : (id) => {
+        let uid = firebase.auth().currentUser.uid
         return $http
           .delete(`https://juxta-position.firebaseio.com/comps/${uid}/${id}.json`)
       },
 
       patchNote : (id, note) => {
+        let uid = firebase.auth().currentUser.uid
         let data = {"note": `${note}`}
         return $http
           .patch(`https://juxta-position.firebaseio.com/comps/${uid}/${id}.json`, data)
