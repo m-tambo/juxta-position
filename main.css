@@ -2,6 +2,11 @@
   main page
 ************/
 
+body {
+  font-family: 'Sansita', sans-serif;
+}
+
+
 /* background */
 .head-image {
   background-image: url('images/headToHead.jpg');
