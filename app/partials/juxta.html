@@ -1,0 +1,158 @@
+
+  <a href="#"><h3 class="main-header"><em><strong>Juxta Position</strong></em></h3></a>
+
+<div>
+  <div class='player-versus row container'>
+
+      <!-- _____ player X card _____ -->
+    <div class="player-x-display">
+      <div class="card col s5">
+        <div class="center card-content">
+            <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
+            <img src="{{logoX}}">  <!-- team logo -->
+            <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
+            <!-- <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5> -->
+              <!-- <p><a href="#">This is a link</a></p> -->
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Bio: <i class="material-icons right">close</i></span>
+            <p>Here is some more information.</p>
+        </div>
+      </div>
+    </div>
+
+      <!-- _____ player Y card _____ -->
+    <div class="player-y-display">
+      <div class="card col s5 offset-s2">
+        <div class="center card-content">
+            <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
+            <img src="{{logoY}}">  <!-- team logo -->
+            <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
+            <!-- <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5> -->
+              <!-- <p><a href="#">This is a link</a></p> -->
+        </div>
+        <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">Bio: <i class="material-icons right">close</i></span>
+            <p>Here is some more information.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>  <!-- _____ end of player cards _____ -->
+
+  <h4 class="center">Week {{week}}</h4>
+
+  <div class="row carousel carousel-slider center" data-indicators="true">
+        <!-- ______ radar chart ______ -->
+    <div class="carousel-item orange lighten-4" href="#one!">
+      <div class="chart col s6 offset-s3">
+        <h4>Projected Points Range</h4>
+        <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="options" chart-series="series" chart-labels="radarLabels">
+        </canvas>
+      </div>
+    </div>
+
+          <!-- ______ bar chart ______ -->
+    <div class="carousel-item orange lighten-4" href="#two!">
+      <div class="chart col s10 offset-s1">
+        <h4>Projected Points</h4>
+        <canvas id="bar" class="chart chart-bar" chart-data="barData" chart-labels="barLabels" chart-series="series">
+        </canvas>
+      </div>
+    </div>
+
+            <!-- ______ experts table ______ -->
+    <div class="table row container carousel-item orange lighten-4" href="#three!">
+      <table class="col s10 offset-s1">
+        <h4>Expert Rankings</h4>
+          <thead>
+            <tr>
+                <th data-field="expert"></th>
+                <th data-field="player-x">{{nameX}}</th>
+                <th data-field="player-y">{{nameY}}</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Michael Fabiano:</td>
+              <td>{{expertRankX[0]}}</td>
+              <td>{{expertRankY[0]}}</td>
+            </tr>
+            <tr>
+              <td>Marcas Grant:</td>
+              <td>{{expertRankX[1]}}</td>
+              <td>{{expertRankY[1]}}</td>
+            </tr>
+            <tr>
+              <td>Alex Gelhar:</td>
+              <td>{{expertRankX[2]}}</td>
+              <td>{{expertRankY[2]}}</td>
+            </tr>
+            <tr>
+              <td>Matt Harmon:</td>
+              <td>{{expertRankX[3]}}</td>
+              <td>{{expertRankY[3]}}</td>
+            </tr>
+            <thead>
+              <th>Matt Franciscovich:</th>
+              <th>{{expertRankX[4]}}</th>
+              <th>{{expertRankY[4]}}</th>
+            </thead>
+            <tr>
+              <td>Average:</td>
+              <td>{{avgRankX}}</td>
+              <td>{{avgRankY}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>    <!-- ______ end of experts table ______ -->
+
+        <!-- ______ comparison table ______ -->
+    <div class="table row container carousel-item orange lighten-4" href="#three!">
+      <table class="col s10 offset-s1">
+          <thead>
+            <tr>
+                <th data-field="category"></th>
+                <th data-field="name-x">{{nameX}}</th>
+                <th data-field="name-y">{{nameY}}</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Opponent:</td>
+              <td>{{opponentX}}</td>
+              <td>{{opponentY}}</td>
+            </tr>
+            <tr>
+              <td>Projected points:</td>
+              <td>{{weekProjectedX}}</td>
+              <td>{{weekProjectedY}}</td>
+            </tr>
+            <tr>
+              <td>Combined Expert Ranking:</td>
+              <td>{{avgRankX}}</td>
+              <td>{{avgRankY}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>    <!-- ______ end of comparison table ______ -->
+  </div>  <!-- ______ end of carousel ______ -->
+
+    <!-- ______ player choice buttons _____ -->
+  <div class="row choice-btn">
+    <div class="col s3 offset-s3">
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameX)">{{nameX}}</button>
+    </div>
+    <div class="col s1">
+      or
+    </div>
+    <div class="col s3">
+      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameY)">{{nameY}}</button>
+    </div>
+  </div>
+</div>
+
+
+<div class="foot-image"></div>

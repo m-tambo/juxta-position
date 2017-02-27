@@ -21,6 +21,18 @@ app
           }
         }
       })
+      .when('/juxta/:paramX/:paramY/:week', {
+        controller: "juxtaCtrl",
+        templateUrl: "/app/partials/juxta.html",
+        resolve: {
+          players: function (apiFactory) {
+            return apiFactory.getPlayers()
+          }
+        }
+        //   juxta: function (apiFactory, $route) {
+        //     return
+        //   }
+      })
       .when('/profile', {
         controller: "profileCtrl",
         templateUrl: "/app/partials/profile.html",
@@ -43,4 +55,6 @@ app
         redirectTo: "/main"
       })
 
-  });
+  })
+
+  .run($rootScope => firebase.auth().onAuthStateChanged(user => $rootScope.user = user))  // $sscott magic

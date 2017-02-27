@@ -46,11 +46,29 @@ app
         })
     };
 
+    let getSchedule = function () {
+      return $http
+        // .get('https://www.fantasyfootballnerd.com/service/schedule/json/iz33m4ducg4h/')
+        .get('/data/schedule.json')
+        .then((res) => {
+          return res.data.Schedule
+        })
+    };
+
+    let getExpertRankings = function (wk, pos, exp) {
+      return $http
+        .get(`http://api.fantasy.nfl.com/v1/players/editorweekranks?season=2016&week=${wk}&position=${pos}&format=json&editorId=${exp}&count=100`)
+        .then((res) => {
+          return res.data.players
+        })
+    }
     return {
       getPlayers,
       getNerdProjections,
       getNerdRankings,
       getNflStats,
-      getNflLeaders
+      getNflLeaders,
+      getSchedule,
+      getExpertRankings
     }
   })

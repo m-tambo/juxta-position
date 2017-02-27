@@ -1,26 +1,39 @@
-<div class="head-image" hidden>
+<div class="head-image">
   <a href="#"><h3 class="main-header"><em><strong>Juxta Position</strong></em></h3></a>
 </div>
 
 <div>
-      <!-- choose two players -->
+      <!-- _____ choose two players _____ -->
   <div class="player-search">
     <form class="row center-align">
-      <div class="input-field">
-        <input class="col s4 offset-s1 input-x autocomplete" placeholder="Player X" ng-model="inputx">
+      <div class="input-field field-x">
+        <input class="col s3 offset-s2 input-x autocomplete" type="text" placeholder="Player X" ng-model="inputx">
       </div>
-      <div class="input-field">
-        <input class="col s4 offset-s2 input-y autocomplete" placeholder="Player Y" ng-model="inputy">
+      <div class="input-field field-y">
+        <input class="col s3 offset-s2 input-y autocomplete" type="text" placeholder="Player Y" ng-model="inputy">
       </div>
 
-        <!-- select week -->
-      <div class="col s4 offset-s4">
-          <div class="input-field col s3">
-            <select ng-repeat="week in weeks">
-              <option value="" disabled selected>Choose week</option>
-              <option value="1">{{week}}</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
+        <!-- _____ select week ______ -->
+      <div class="select-week col s2 offset-s5">
+          <div>
+            <select>
+              <option value="" disabled selected>Select Week</option>
+              <option id="1" value="1">Week 1</option>
+              <option id="2" value="2">Week 2</option>
+              <option id="3" value="3">Week 3</option>
+              <option id="4" value="4">Week 4</option>
+              <option id="5" value="5">Week 5</option>
+              <option id="6" value="6">Week 6</option>
+              <option id="7" value="7">Week 7</option>
+              <option id="8" value="8">Week 8</option>
+              <option id="9" value="9">Week 9</option>
+              <option id="10" value="10">Week 10</option>
+              <option id="11" value="11">Week 11</option>
+              <option id="12" value="12">Week 12</option>
+              <option id="13" value="13">Week 13</option>
+              <option id="14" value="14">Week 14</option>
+              <option id="15" value="15">Week 15</option>
+              <option id="16" value="16">Week 16</option>
             </select>
             <label>Select Week</label>
           </div>
@@ -28,112 +41,12 @@
 
         <!-- juxtaPose button -->
       <div class="juxta-btn center-align col s4 offset-s4" ng-click="juxtaPose()">
-        <button class="btn waves-effect waves-orange" type="submit">juxtaPose</button>
+        <button class="btn waves-effect" type="submit">juxtaPose</button>
       </div>
     </form>
   </div>
 
 
-  <div class='player-versus row container' hidden>
 
-      <!-- _____ player X card _____ -->
-    <div class="player-x-display">
-      <div class="card col s5">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
-        </div>
-        <div class="card-content">
-            <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
-            <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
-              <!-- <p><a href="#">This is a link</a></p> -->
-        </div>
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Position Rank: {{positionXrank}}<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
-      </div>
-    </div>
-
-      <!-- _____ player Y card _____ -->
-    <div class="player-y-display">
-      <div class="card col s5 offset-s2">
-        <div class="card-image waves-effect waves-block waves-light">
-          <img class="activator" src="images/office.jpg">
-        </div>
-        <div class="card-content">
-            <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
-            <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
-              <!-- <p><a href="#">This is a link</a></p> -->
-        </div>
-        <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4">Position Rank: {{positionYrank}}<i class="material-icons right">close</i></span>
-            <p>Here is some more information about this product that is only revealed once clicked on.</p>
-        </div>
-      </div>
-    </div>
-
-  </div>  <!-- _____ end of player cards _____ -->
-
-  <div class="row carousel carousel-slider center" data-indicators="true">
-        <!-- ______ radar chart ______ -->
-    <div class="carousel-item orange lighten-4" href="#one!">
-      <div class="chart col s6 offset-s3">
-        <canvas id="radar" class="chart chart-radar" chart-data="data" chart-options="options" chart-series="series" chart-labels="labels">
-        </canvas>
-      </div>
-    </div>
-
-          <!-- ______ bar chart ______ -->
-    <div class="carousel-item orange lighten-3" href="#two!">
-      <div class="chart col s10 offset-s1">
-        <canvas id="bar" class="chart chart-bar" chart-data="data" chart-labels="labels" chart-series="series">
-        </canvas>
-      </div>
-    </div>
-
-        <!-- ______ comparison table ______ -->
-    <div class="table row container carousel-item orange lighten-5" href="#three!">
-      <table class="col s10 offset-s1">
-          <thead>
-            <tr>
-                <th data-field="id"></th>
-                <th data-field="name">{{nameX}}</th>
-                <th data-field="price">{{nameY}}</th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <td>Opponent:</td>
-              <td><i class="material-icons">done</i></td>
-              <td><i class="material-icons">done</i></td>
-            </tr>
-            <tr>
-              <td>Projected points:</td>
-              <td ng-if="weekProjectedX > weekProjectedY"><i class="material-icons">done</i></td>
-              <td ng-if="weekProjectedX < weekProjectedY"><i class="material-icons">done</i></td>
-            </tr>
-            <tr>
-              <td>Expert ranking:</td>
-              <td ng-if="positionXrank < positionYrank"><i class="material-icons">done</i></td>
-              <td ng-if="positionXrank > positionYrank"><i class="material-icons">done</i></td>
-            </tr>
-          </tbody>
-        </table>
-    </div>    <!-- ______ end of comparison table ______ -->
-  </div>  <!-- ______ end of carousel ______ -->
-
-    <!-- ______ player choice buttons _____ -->
-  <div class="row choice-btn" hidden>
-    <div class="col s3 offset-s3">
-      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameX)">{{playerX.player.LastName}}</button>
-    </div>
-    <div class="col s2">
-      or
-    </div>
-    <div class="col s3">
-      <button class="btn waves-effect waves-orange" ng-click="postComparison(nameY)">{{playerY.player.LastName}}</button>
-    </div>
-  </div>
 
 </div>   <!-- ______ end of main page ______ -->

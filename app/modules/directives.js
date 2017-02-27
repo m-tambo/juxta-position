@@ -8,27 +8,33 @@ dir
       controller: function($scope, authFactory, $location) {
         console.log('navbar controller firing')
 
-        $scope.user = firebase.auth().currentUser
-        console.log($scope.user)
+        // authFactory.getUser()
+        //   .then(user => {
+        //     console.log('USER', user)
+        //     $scope.user = user
+        //   })
+        //   .catch((err) => {
+        //     $scope.user = null
+        //     console.error(err)
+        //   })
 
         $scope.hideNav = function () {  // clear the nav bar when a link is selected
           $('.button-collapse').sideNav('hide');
         }
 
-        $(".button-collapse").sideNav();
-
         $scope.goToLogin = function () {
-          console.log('go to login')
-          document.querySelector('.login').removeAttribute('hidden');
-          document.querySelector('.register').setAttribute('hidden', 'hidden');
           $scope.hideNav()
+          console.log('go to login')
+          $location.url('/login')
+          $scope.login = true
+          $scope.register = false
         };
 
         $scope.goToRegister = function () {
-          console.log('go to register')
-          document.querySelector('.login').setAttribute('hidden', 'hidden');
-          document.querySelector('.register').removeAttribute('hidden');
+          $scope.register = true
+          $scope.login = false
           $scope.hideNav()
+          console.log('go to register')
         };
 
         $scope.signOut = function () {
@@ -36,6 +42,9 @@ dir
           $location.path('/')
           $scope.hideNav()
         }
+
+        $(".button-collapse").sideNav();
+
       },
 
       resolve: {

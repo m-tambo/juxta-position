@@ -1,5 +1,5 @@
 app
-  .factory('authFactory', function($q) {
+  .factory('authFactory', function($q, $http) {
     let currentUser = undefined
 
     return {
@@ -20,8 +20,20 @@ app
             var errorMessage = error.message;
           })
           .then(() => {
-            return email
             console.log(email)
+            return firebase.auth().currentUser.uid
+          })
+          .then((uid, email) => {
+            console.log(uid)
+            let newUser = {
+              uid: uid,
+              email: email
+            }
+            return $http
+              .post('https://juxta-position.firebaseio.com/user.json', newUser)
+              .then(() => {
+                return newUser
+              })
           })
       },
 
@@ -41,7 +53,7 @@ app
             if (user) {
               resolve(user)
             } else {
-              reject()
+              reject('Not logged in')
             }
           })
         })

@@ -1,27 +1,41 @@
 
 <div class="container">
-  <a href="/"><p><em><strong>Juxta Position</strong></em></p></a>
+  <a href="/" class="center"><p><em><strong>[ Juxta Position ]</strong></em></p></a>
   <div class="row">
     <div class="profile-pic col s4 offset-s8">
-      <img class="circle" src="{{profilePic}}" />
+      <a href="" ><img class="circle profile-pic" src="{{profilePic}}" /></a>
       <h5 class="center">{{user.email}}</h5>
     </div>
   </div>
   <div class="divider"></div>
 
-  <div class="my-comps">
+  <div class="my-comps container">
     <div>
       <h3>Saved comparisons</h3>
-      <ul class="collapsible popout" data-collapsible="accordion" ng-repeat="(key, comp) in comps">
-        <li>
-          <div class="collapsible-header" ng-click='openComp()'>
-            <i class="material-icons">assessment</i>
-            You compared <b>{{comp.nameX}}</b> and <b>{{comp.nameY}}</b>.
-            <a href="" ng-click="deleteComp(key)"><i class="material-icons right">delete</i></a>
+      <ul class="collapsible comp-div popout" data-collapsible="accordion">
+        <li ng-repeat="(key, comp) in comps">
+            <div class="collapsible-header" ng-click='openComp()'>
+              <i class="material-icons">assessment</i>
+              <b>{{comp.nameX}}</b> vs <b>{{comp.nameY}}</b> in <b>Week {{comp.week}}</b>.
+            </div>
+          <div class="collapsible-body">
+            <span> You chose <strong>{{comp.choice}}.</strong></span>
+            <a href="" ng-click="reviewComp(comp.nameX, comp.nameY, comp.week)">  [ Review ]</a>
+              <a href="" ng-click="deleteComp(key)"><i class="material-icons right">delete</i></a>
+            <div class="newNote row input-field" ng-if="comp.note === undefined"> <!-- only shows if note doesn't exist -->
+              <input class="left-align col s5 offset-s1" type="text" ng-model="newNote" placeholder="comment">
+
+              <a class="tooltipped btn-floating btn-small waves-effect waves-light blue" data-position="bottom" data-delay="50" data-tooltip="Add a note" ng-click="addNote(key, newNote)">
+                <i class="material-icons">add</i>
+              </a>
+
+            </div>
+            <p class="comp-note"><em>{{comp.note}}</em></p>
           </div>
-          <div class="collapsible-body"><span> You chose {{comp.choice}}.</span></div>
         </li>
       </ul>
     </div>
   </div>
 </div>
+
+<div class="profile-image"></div>

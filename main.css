@@ -2,12 +2,18 @@
   main page
 ************/
 
+body {
+  font-family: 'Sansita', sans-serif;
+}
+
+
 /* background */
 .head-image {
   background-image: url('images/headToHead.jpg');
   background-size: cover;
   margin-top: none;
-  padding: 1% 1% 25% 1%;
+  padding: .5% 1% 25% 1%;
+  opacity: .9;
 }
 
 .main-header {
@@ -16,13 +22,30 @@
   margin-bottom: 5%;
 }
 
-/* label color */
+.input-field {
+  position: relative;
+}
 
+/* position of first autocomplete */
+.field-x .autocomplete-content {
+  position: absolute;
+  left: 25%;
+}
 
-/* label underline focus color */
-.input-x, .inpu-y {
-  border-bottom: 1px solid orange;
-  box-shadow: 0 1px 0 0 orange;
+/* position of second autocomplete */
+.field-y .autocomplete-content {
+  position: absolute;
+  left: 70%;
+}
+
+/* autocomplete color */
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #039be5;
+}
+
+/* select color */
+input.select-dropdown option {
+  color: #039be5;
 }
 
 form {
@@ -32,12 +55,30 @@ form {
 /* juxta button */
 .btn {
   margin: 2%;
+  background-color: #039be5;
+}
+
+.btn:focus {
+  background-color: #039be5;
+}
+
+.btn:hover {
+  background-color: #0366e5;
 }
 
 /* icon styling */
 .material-icons {
   color: orange;
 }
+
+/************
+  juxta page
+************/
+
+.player-versus {
+  margin-top: 5%;
+}
+
 
 /************
   login page
@@ -49,3 +90,83 @@ form {
   margin-top: none;
   padding: 1% 1% 25% 1%;
 }
+
+
+/************
+  carousel
+************/
+
+.carousel.carousel-slider .carousel-item {
+  min-height: 600px;
+}
+
+
+/************
+  profile
+************/
+
+.comp-note {
+  color: orange;
+}
+
+.comp-div {
+  font-size: 1.15em;
+}
+
+.profile-pic {
+  max-width: 250px;
+}
+
+.profile-image {
+  background-image: url('/images/stiff_arm.jpg');
+  background-size: cover;
+  margin: 2% 0;
+  padding: 1% 1% 25% 1%;
+  opacity: .9;
+}
+
+
+/************
+  juxta page
+************/
+
+/* background */
+.foot-image {
+  background-image: url('/images/sea_ari.jpg');
+  background-size: cover;
+  margin: 2% 0;
+  padding: 1% 1% 25% 1%;
+  opacity: .9;
+}
+
+/************
+  input colors
+************/
+
+ /* label color */
+   .input-field label {
+     color: #039be5;
+   }
+   /* label focus color */
+   .input-field input[type=text]:focus + label, .input-field input[type=email]:focus + label, .input-field input[type=password]:focus + label {
+     color: #039be5;
+   }
+   /* label underline focus color */
+   .input-field input[type=text]:focus, .input-field input[type=email]:focus, .input-field input[type=password]:focus {
+     border-bottom: 1px solid #039be5;
+     box-shadow: 0 1px 0 0 #039be5;
+   }
+   /* valid color */
+   .input-field input[type=email].valid, .input-field input[type=password].valid {
+     border-bottom: 1px solid green;
+     box-shadow: 0 1px 0 0 green;
+   }
+   /* invalid color */
+   .input-field input[type=email].invalid, .input-field input[type=password].invalid {
+     border-bottom: 1px solid red;
+     box-shadow: 0 1px 0 0 red;
+   }
+   /* icon prefix focus color */
+   .input-field .prefix.active {
+     color: #000;
+   }

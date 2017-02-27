@@ -3,7 +3,7 @@
 </div>
 
       <!-- _____ login form _____ -->
-  <div class="login row container">
+  <div class="login row container" ng-show="login">
     <h3>Login</h3>
     <form class="col s12">
       <div class="row">
@@ -18,19 +18,19 @@
           <label for="login-pass">Password</label>
         </div>
         <div class="center">
-          <button class="btn small" type="submit" ng-click="loginUser()">Login</button>
+          <button class="btn small waves-effect" type="submit" ng-click="loginUser()">Login</button>
         </div>
       </div>
     </form>
     <div class="right">
       <h5 class="small">Don't have an account?</h5>
-      <button class="waves-effect waves-light btn center" ng-click="goToRegister()">Register</button>
+      <button class="waves-effect btn center" ng-click="goToRegister()">Register</button>
     </div>
   </div>
 
        <!-- _____ register form _____ -->
-  <div class="register row container" hidden>
-    <h3>Register</h3>
+  <div class="register row container" ng-show="register">
+    <h3>Register new User</h3>
     <form class="col s12" ng-submit="registerUser()">
       <div class="row">
         <div class="input-field col s6">
@@ -44,7 +44,7 @@
           <label for="register-pass">Password</label>
         </div>
         <div class="center">
-          <button class="btn small" type="submit" ng-click="registerUser()">Register</button>
+          <button class="btn small waves-effect" type="submit" ng-click="registerUser()">Register</button>
         </div>
       </div>
     </form>
