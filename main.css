@@ -78,6 +78,10 @@ form {
   color: orange;
 }
 
+.comp-div {
+  font-size: 1.15em;
+}
+
 .profile-image {
   background-image: url('/images/stiff_arm.jpg');
   background-size: cover;
