@@ -72,6 +72,20 @@ app
         })
     }
 
+    $scope.showExperts = function (guy, week, position) {
+      for (i = 1; i < 6; i++) {
+        apiFactory.getExpertRankings(week, position, i)
+          .then((ranks) => {
+            for (k = 0; k < ranks.length; k++) {
+              if ((ranks[k].firstName + " " + ranks[k].lastName) === guy) {
+                console.log(ranks[k].rank)
+              }
+            }
+          })
+      }
+    }
+
+
     $scope.getOpponents = function (team, opp) {
       apiFactory.getSchedule()
       .then((schedule) =>  {
@@ -109,6 +123,9 @@ app
 
     $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
     $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
+
+    $scope.showExperts($scope.nameX, $scope.week, $scope.playerX.player.Position)
+    $scope.showExperts($scope.nameY, $scope.week, $scope.playerY.player.Position)
 
     $scope.getOpponents($scope.playerX.team.Abbreviation, 'opponentX')  // set opponent to $scope.opponentX
     $scope.getOpponents($scope.playerY.team.Abbreviation, 'opponentY')  // set opponent to $scope.opponentY

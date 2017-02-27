@@ -53,6 +53,14 @@ app
         .then((res) => {
           return res.data.Schedule
         })
+    };
+
+    let getExpertRankings = function (wk, pos, exp) {
+      return $http
+        .get(`http://api.fantasy.nfl.com/v1/players/editorweekranks?season=2016&week=${wk}&position=${pos}&format=json&editorId=${exp}&count=80`)
+        .then((res) => {
+          return res.data.players
+        })
     }
     return {
       getPlayers,
@@ -60,6 +68,7 @@ app
       getNerdRankings,
       getNflStats,
       getNflLeaders,
-      getSchedule
+      getSchedule,
+      getExpertRankings
     }
   })
