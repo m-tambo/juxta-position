@@ -26,7 +26,7 @@ body {
 
 
 /* label underline focus color */
-.input-x, .inpu-y {
+.input-x, .input-y {
   border-bottom: 1px solid orange;
   box-shadow: 0 1px 0 0 orange;
 }

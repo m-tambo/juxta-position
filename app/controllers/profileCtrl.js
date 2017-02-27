@@ -26,7 +26,7 @@ app
     }
 
     $scope.reviewComp = function (x, y, w) {
-      $location.url(`/juxta/${x}/${y}/${w}`)
+      $location.url(`/juxta/${x}/${y}/${w}`)  // injects the two names and the week as route params
 
     }
 
