@@ -105,10 +105,15 @@ app
     }
 
     $scope.postComparison = function (pick) {  // post to firebase
-      var $toastContent = $('<span>Juxtaposition saved to your profile.</span>');  // toast
-      Materialize.toast($toastContent, 4500, 'rounded');
-      firebaseFactory.postComp($routeParams.paramX, $routeParams.paramY, $routeParams.week, pick)
-        .then(() => $location.path('/'))
+      if (firebase.auth().currentUser === null) {
+        alert("You must login to save this comparison")
+      }
+      else {
+        var $toastContent = $('<span>Juxtaposition saved to your profile.</span>');  // toast
+        Materialize.toast($toastContent, 4500, 'rounded');
+        firebaseFactory.postComp($routeParams.paramX, $routeParams.paramY, $routeParams.week, pick)
+          .then(() => $location.path('/'))
+      }
     }
 
 
