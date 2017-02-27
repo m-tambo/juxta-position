@@ -4,7 +4,7 @@ app
 
     $scope.user = firebase.auth().currentUser
     $scope.profilePic = 'http://nexus1492.eu/wp-content/plugins/smartcat_our_team/inc/img/noprofile.jpg'
-    // $scope.profilePic = firebase.auth().currentUser.photoUrl
+    $scope.profilePic = firebase.auth().currentUser.photoURL
 
     firebaseFactory.getComps()  // get comparisons from firebase
       .then((comps) => {
