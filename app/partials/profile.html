@@ -22,7 +22,7 @@
             <span> You chose <strong>{{comp.choice}}.</strong></span>
             <a href="" ng-click="reviewComp(comp.nameX, comp.nameY, comp.week)">  [ Review ]</a>
               <a href="" ng-click="deleteComp(key)"><i class="material-icons right">delete</i></a>
-            <div class="newNote row" ng-if="comp.note === undefined"> <!-- only shows if note doesn't exist -->
+            <div class="newNote row input-field" ng-if="comp.note === undefined"> <!-- only shows if note doesn't exist -->
               <input class="left-align col s5 offset-s1" type="text" ng-model="newNote" placeholder="comment">
 
               <a class="tooltipped btn-floating btn-small waves-effect waves-light blue" data-position="bottom" data-delay="50" data-tooltip="Add a note" ng-click="addNote(key, newNote)">
