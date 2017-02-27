@@ -18,19 +18,19 @@
           <label for="login-pass">Password</label>
         </div>
         <div class="center">
-          <button class="btn small" type="submit" ng-click="loginUser()">Login</button>
+          <button class="btn small waves-effect" type="submit" ng-click="loginUser()">Login</button>
         </div>
       </div>
     </form>
     <div class="right">
       <h5 class="small">Don't have an account?</h5>
-      <button class="waves-effect waves-light btn center" ng-click="goToRegister()">Register</button>
+      <button class="waves-effect btn center" ng-click="goToRegister()">Register</button>
     </div>
   </div>
 
        <!-- _____ register form _____ -->
   <div class="register row container" ng-show="register">
-    <h3>Register</h3>
+    <h3>Register new User</h3>
     <form class="col s12" ng-submit="registerUser()">
       <div class="row">
         <div class="input-field col s6">
