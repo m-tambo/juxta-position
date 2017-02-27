@@ -24,20 +24,21 @@ app
       }
     }
 
-    $scope.showProjections = function (guy, letter) {
-      apiFactory.getNerdProjections()  // (week, pos)
+    $scope.showProjections = function (guy, letter, pos) {
+      apiFactory.getNerdProjections($scope[pos].player.Position, $scope.week)
         .then((projections) => {
           // console.log(projections)
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === guy) {   // find matching player
               $scope[letter] = projections[i]
+              // console.log($scope[letter])
             }
           }
         })
     }
 
-    $scope.showRankings = function (dude, letter, pos) {
-      apiFactory.getNerdRankings() // (dude, [week#])
+    $scope.showRankings = function (dude, letter, pos, posit) {
+      apiFactory.getNerdRankings($scope[posit].player.Position, $scope.week)
         .then((rankings) => {
           for (j = 0; j < rankings.length; j++) {
             if (rankings[j].name === dude) {   // find matching player
@@ -54,7 +55,7 @@ app
     }
 
     $scope.showStats = function (guy, seasonProj, season, weekProj, week) {
-      apiFactory.getNflStats()
+      apiFactory.getNflStats($scope.week)
         .then((stats) => {
           for (k = 0; k < stats.length; k++) {
             if (stats[k].name === guy) {  // find matching player
@@ -124,11 +125,11 @@ app
     $scope.logoX = `/images/logos/${$scope.playerX.team.Abbreviation}.png`  // set team logos
     $scope.logoY = `/images/logos/${$scope.playerY.team.Abbreviation}.png`
 
-    $scope.showProjections($routeParams.paramX, 'projectionsX');  // find playerX projections, set obj to var
-    $scope.showProjections($routeParams.paramY, 'projectionsY');  // find playerY projections, set obj to var
+    $scope.showProjections($routeParams.paramX, 'projectionsX', 'playerX');  // find playerX projections, set obj to var
+    $scope.showProjections($routeParams.paramY, 'projectionsY', 'playerY');  // find playerY projections, set obj to var
 
-    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank')  // grab rankings
-    $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank')
+    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank', 'playerX')  // grab rankings
+    $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank', 'playerY')
 
     $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
     $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
