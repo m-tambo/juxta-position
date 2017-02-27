@@ -61,14 +61,61 @@
       </div>
     </div>
 
+            <!-- ______ experts table ______ -->
+    <div class="table row container carousel-item orange lighten-4" href="#three!">
+      <table class="col s10 offset-s1">
+        <h4>Expert Rankings</h4>
+          <thead>
+            <tr>
+                <th data-field="expert"></th>
+                <th data-field="player-x">{{nameX}}</th>
+                <th data-field="player-y">{{nameY}}</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Michael Fabiano:</td>
+              <td>{{expertRankX[0]}}</td>
+              <td>{{expertRankY[0]}}</td>
+            </tr>
+            <tr>
+              <td>Marcas Grant:</td>
+              <td>{{expertRankX[1]}}</td>
+              <td>{{expertRankY[1]}}</td>
+            </tr>
+            <tr>
+              <td>Alex Gelhar:</td>
+              <td>{{expertRankX[2]}}</td>
+              <td>{{expertRankY[2]}}</td>
+            </tr>
+            <tr>
+              <td>Matt Harmon:</td>
+              <td>{{expertRankX[3]}}</td>
+              <td>{{expertRankY[3]}}</td>
+            </tr>
+            <thead>
+              <th>Matt Franciscovich:</th>
+              <th>{{expertRankX[4]}}</th>
+              <th>{{expertRankY[4]}}</th>
+            </thead>
+            <tr>
+              <td>Average:</td>
+              <td>{{avgRankX}}</td>
+              <td>{{avgRankY}}</td>
+            </tr>
+          </tbody>
+        </table>
+    </div>    <!-- ______ end of experts table ______ -->
+
         <!-- ______ comparison table ______ -->
     <div class="table row container carousel-item orange lighten-4" href="#three!">
       <table class="col s10 offset-s1">
           <thead>
             <tr>
-                <th data-field="id"></th>
-                <th data-field="name">{{nameX}}</th>
-                <th data-field="price">{{nameY}}</th>
+                <th data-field="category"></th>
+                <th data-field="name-x">{{nameX}}</th>
+                <th data-field="name-y">{{nameY}}</th>
             </tr>
           </thead>
 
@@ -85,8 +132,8 @@
             </tr>
             <tr>
               <td>Combined Expert Ranking:</td>
-              <td>{{positionXrank}}</td>
-              <td>{{positionYrank}}</td>
+              <td>{{avgRankX}}</td>
+              <td>{{avgRankY}}</td>
             </tr>
           </tbody>
         </table>
