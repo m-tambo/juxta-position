@@ -38,6 +38,15 @@ form {
 /* juxta button */
 .btn {
   margin: 2%;
+  background-color: #039be5;
+}
+
+.btn:focus {
+  background-color: #039be5;
+}
+
+.btn:hover {
+  background-color: #0366e5;
 }
 
 /* icon styling */
