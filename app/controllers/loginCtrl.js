@@ -1,6 +1,6 @@
 app
   .controller('loginCtrl', function($scope, authFactory, $location) {
-    console.log('login controller firing')
+    // console.log('login controller firing')
 
       // show login page, remove register page, if showing
     $scope.login = true
