@@ -10,28 +10,28 @@ app
 
     };
 
-    let getNerdProjections = function () {
+    let getNerdProjections = function (pos, wk) {
       return $http
-        .get(`/data/projectionsQBwk1.json`)
-        // .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${pos}/${wk}/`)
+        // .get(`/data/projectionsQBwk1.json`)
+        .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${pos}/${wk}/`)
         .then((res) => {
           return res.data.Projections
         })
     };
 
-    let getNerdRankings = function () {
+    let getNerdRankings = function (pos, wk) {
       return $http
-        .get(`/data/rankingsWRweek2.json`)
-        // .get(`https://www.fantasyfootballnerd.com/service/weekly-rankings/json/iz33m4ducg4h/WR/${wk}/1/`)
+        // .get(`/data/rankingsWRweek2.json`)
+        .get(`https://www.fantasyfootballnerd.com/service/weekly-rankings/json/iz33m4ducg4h/${pos}/${wk}/1/`)
         .then((res) => {
           return res.data.Rankings
         })
     };
 
-    let getNflStats = function () {
+    let getNflStats = function (wk) {
       return $http
-        //.get(`http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016&week=6&format=json`)
-        .get(`/data/nflWeek6stats.json`)
+        .get(`http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016&week=${wk}&format=json`)
+        // .get(`/data/nflWeek6stats.json`)
         .then((res) => {
           return res.data.players
         })

@@ -1,6 +1,6 @@
 app
   .controller('mainCtrl', function(players, $scope, apiFactory, firebaseFactory, $location) {
-    console.log('mainCtrl firing')
+    // console.log('mainCtrl firing')
     // $scope.uid = firebase.auth().currentUser.uid;
     $scope.playerList = players;
 
