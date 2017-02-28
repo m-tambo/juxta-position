@@ -38,6 +38,7 @@ app
     }
 
     $scope.showRankings = function (dude, letter, pos, posit) {
+      $scope.radarData = []
       apiFactory.getNerdRankings($scope[posit].player.Position, $scope.week)
         .then((rankings) => {
           for (j = 0; j < rankings.length; j++) {
@@ -45,10 +46,7 @@ app
               $scope[letter] = rankings[j];
               $scope[pos] = j + 1;
 
-              $scope.radarData = [  // inject stat variables into graph
-                [$scope.rankingsX.ppr, $scope.rankingsX.pprHigh, $scope.rankingsX.pprLow],
-                [$scope.rankingsY.ppr, $scope.rankingsY.pprHigh, $scope.rankingsY.pprLow]
-              ]
+              $scope.radarData.push([$scope[letter].ppr, $scope[letter].pprHigh, $scope[letter].pprLow]) // assign data to radar graph
             }
           }
         })
