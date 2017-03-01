@@ -10,6 +10,11 @@ Enter juxtaPosition.
 Simply start typing the names of the two players in question. juxta will immediately populate the page with a full side-by-side layout of all the info, stats, and expert projections you need to make a supremely informed decision and lay waste to all other teams in your Fantasy Football league.  
 
 
+
+### Trello board: https://trello.com/b/TXwSxNKR/juxta-front-end-crapstone
+
+### Moqup: https://app.moqups.com/m-tambo/QjhjtpG1OF/view
+
 ### APIs used
 ##### NFL Schedule: https://www.fantasyfootballnerd.com/service/schedule.
 ##### Projected points: https://www.fantasyfootballnerd.com/service/weekly-projections.
@@ -17,7 +22,3 @@ Simply start typing the names of the two players in question. juxta will immedia
 ##### Player Stats: http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016.
 ##### Expert rankings: http://api.fantasy.nfl.com/v1/players/editorweekranks.
 
-
-### Trello board: https://trello.com/b/TXwSxNKR/juxta-front-end-crapstone
-
-### Moqup: https://app.moqups.com/m-tambo/QjhjtpG1OF/view
