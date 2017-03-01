@@ -11,11 +11,11 @@ Simply start typing the names of the two players in question. juxta will immedia
 
 
 ### APIs used
-https://www.fantasyfootballnerd.com/service/weekly-projections
-https://www.fantasyfootballnerd.com/service/weekly-rankings
-https://www.fantasyfootballnerd.com/service/schedule
-http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016
-http://api.fantasy.nfl.com/v1/players/editorweekranks
+NFL Schedule: https://www.fantasyfootballnerd.com/service/schedule
+Projected points: https://www.fantasyfootballnerd.com/service/weekly-projections
+Projected rankings: https://www.fantasyfootballnerd.com/service/weekly-rankings
+Player Stats: http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016
+Expert rankings: http://api.fantasy.nfl.com/v1/players/editorweekranks
 
 
 #### Trello board: https://trello.com/b/TXwSxNKR/juxta-front-end-crapstone
