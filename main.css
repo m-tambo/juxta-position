@@ -9,7 +9,7 @@ body {
 
 /* background */
 .head-image {
-  background-image: url('images/headToHead.jpg');
+  background-image: url('images/public-pics/yellow-v-red.jpg');
   background-size: cover;
   margin-top: none;
   padding: .5% 1% 25% 1%;
@@ -85,7 +85,7 @@ form {
 ************/
 
 .login-image {
-  background-image: url('images/headToHead.jpg');
+  background-image: url('images/public-pics/yellow-v-red.jpg');
   background-size: cover;
   margin-top: none;
   padding: 1% 1% 25% 1%;
@@ -118,7 +118,7 @@ form {
 }
 
 .profile-image {
-  background-image: url('/images/stiff_arm.jpg');
+  background-image: url('images/public-pics/bolt.jpg');
   background-size: cover;
   margin: 2% 0;
   padding: 1% 1% 25% 1%;
@@ -132,7 +132,7 @@ form {
 
 /* background */
 .foot-image {
-  background-image: url('/images/sea_ari.jpg');
+  background-image: url('/images/public-pics/leap.jpg');
   background-size: cover;
   margin: 2% 0;
   padding: 1% 1% 25% 1%;
