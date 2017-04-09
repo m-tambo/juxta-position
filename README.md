@@ -23,13 +23,8 @@ When you have made your decision, click on one of the players below to save this
 #### Your Personal profile
 Here you can feel like a decorated Super Bowl champion by managing all of your saved comparisons. </br>
 Leave yourself a note, revisit the comparison, and delete it when the season is over. </br>
+![screen shot 2017-04-09 at 12 22 45 pm](https://cloud.githubusercontent.com/assets/23462252/24839520/9fc1a630-1d21-11e7-990f-510e890931ee.png)
 
-
-
-
-### Trello board: https://trello.com/b/TXwSxNKR/juxta-front-end-crapstone
-
-### Moqup: https://app.moqups.com/m-tambo/QjhjtpG1OF/view
 
 ### APIs used
 ##### NFL Schedule: https://www.fantasyfootballnerd.com/service/schedule.
@@ -37,4 +32,10 @@ Leave yourself a note, revisit the comparison, and delete it when the season is 
 ##### Projected rankings: https://www.fantasyfootballnerd.com/service/weekly-rankings.
 ##### Player Stats: http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016.
 ##### Expert rankings: http://api.fantasy.nfl.com/v1/players/editorweekranks.
+
+
+### Trello board: https://trello.com/b/TXwSxNKR/juxta-front-end-crapstone
+
+### Moqup: https://app.moqups.com/m-tambo/QjhjtpG1OF/view
+
 
