@@ -6,8 +6,17 @@ It's Sunday morning. The games are about to start. You *need* to win this head-t
 
 Enter JuxtaPosition.
 
-##Solution
+## Solution
 Simply start typing the names of the two players in question. Juxta will immediately populate the page with a full side-by-side layout of all the info, stats, and expert projections you need to make a supremely informed decision and lay waste to all other teams in your Fantasy Football league.  
+
+
+#### Landing Page
+Enter two players and the week of the matchup. </br>
+The powerful autocomplete will assist you with all those hard-to-spell player names.
+![screen shot 2017-04-09 at 12 17 57 pm](https://cloud.githubusercontent.com/assets/23462252/24839454/15aa347c-1d20-11e7-94ab-9be415baa1d3.png)
+
+#### All the relevant stats, projections and expert rankings
+
 
 
 
