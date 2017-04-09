@@ -12,10 +12,17 @@ Simply start typing the names of the two players in question. Juxta will immedia
 
 #### Landing Page
 Enter two players and the week of the matchup. </br>
-The powerful autocomplete will assist you with all those hard-to-spell player names.
+The powerful autocomplete will assist you with all those hard-to-spell player names. </br>
 ![screen shot 2017-04-09 at 12 17 57 pm](https://cloud.githubusercontent.com/assets/23462252/24839454/15aa347c-1d20-11e7-94ab-9be415baa1d3.png)
 
 #### All the relevant stats, projections and expert rankings
+Punch up all the numbers in your fantasy football brain machine. </br>
+When you have made your decision, click on one of the players below to save this comparison to your profile. </br>
+![screen shot 2017-04-09 at 12 21 04 pm](https://cloud.githubusercontent.com/assets/23462252/24839486/dd2edbb0-1d20-11e7-86b0-3bc0af8a9c75.png)
+
+#### Your Personal profile
+Here you can feel like a decorated Super Bowl champion by managing all of your saved comparisons. </br>
+Leave yourself a note, revisit the comparison, and delete it when the season is over. </br>
 
 
 
