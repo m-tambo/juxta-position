@@ -132,6 +132,7 @@ app
     $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
     $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
 
+
     $scope.showExperts($scope.nameX, $scope.week, $scope.playerX.player.Position, 'expertRankX', 'avgRankX')
     $scope.showExperts($scope.nameY, $scope.week, $scope.playerY.player.Position, 'expertRankY', 'avgRankY')
 
