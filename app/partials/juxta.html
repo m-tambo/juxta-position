@@ -43,20 +43,21 @@
   <h4 class="center">Week {{week}}</h4>
 
   <div class="row carousel carousel-slider center" data-indicators="true">
-        <!-- ______ radar chart ______ -->
+
+                  <!-- ______ bar chart ______ -->
     <div class="carousel-item orange lighten-4" href="#one!">
-      <div class="chart col s6 offset-s3">
-        <h4>Projected Points Range</h4>
-        <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="options" chart-series="series" chart-labels="radarLabels">
+      <div class="chart col s10 offset-s1">
+        <h4>Projected Points</h4>
+        <canvas id="bar" class="chart chart-bar" chart-data="barData" chart-labels="barLabels" chart-series="series">
         </canvas>
       </div>
     </div>
 
-          <!-- ______ bar chart ______ -->
+        <!-- ______ radar chart ______ -->
     <div class="carousel-item orange lighten-4" href="#two!">
-      <div class="chart col s10 offset-s1">
-        <h4>Projected Points</h4>
-        <canvas id="bar" class="chart chart-bar" chart-data="barData" chart-labels="barLabels" chart-series="series">
+      <div class="chart col s6 offset-s3">
+        <h4>Projected Points Range</h4>
+        <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="options" chart-series="series" chart-labels="radarLabels">
         </canvas>
       </div>
     </div>
