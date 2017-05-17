@@ -42,25 +42,36 @@
 
   <h4 class="center">Week {{week}}</h4>
 
+    <!-- _____ CAROUSEL _____ -->
   <div class="row carousel carousel-slider center" data-indicators="true">
 
-                  <!-- ______ bar chart ______ -->
+        <!-- ______ bar chart ______ -->
     <div class="carousel-item orange lighten-4" href="#one!">
       <div class="chart col s10 offset-s1">
         <h4>Projected Points</h4>
         <canvas id="bar" class="chart chart-bar" chart-data="barData" chart-labels="barLabels" chart-series="series">
         </canvas>
       </div>
-    </div>
+    </div> <!-- ______ end of bar chart ______ -->
 
-        <!-- ______ radar chart ______ -->
+        <!-- ______ recent news ______ -->
     <div class="carousel-item orange lighten-4" href="#two!">
-      <div class="chart col s6 offset-s3">
-        <h4>Projected Points Range</h4>
-        <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="options" chart-series="series" chart-labels="radarLabels">
-        </canvas>
-      </div>
-    </div>
+     <h4 class="recent-news-div">Recent News:</h4>
+        <div class="card news-card col s4 offset-s1">
+          <P>{{nameX}}</P>
+          <div ng-repeat="item in newsX">
+            <hr />
+            <p>{{item}}</p>
+          </div>
+        </div>
+        <div class="card news-card col s4 offset-s2">
+          <P>{{nameY}}</P>
+          <div ng-repeat="item in newsY">
+            <hr />
+            <p>{{item}}</p>
+          </div>
+        </div>
+    </div> <!-- ______ end of recent news ______ -->
 
             <!-- ______ experts table ______ -->
     <div class="table row container carousel-item orange lighten-4" href="#three!">

@@ -1,5 +1,5 @@
 app
-  .controller('juxtaCtrl', function($scope, authFactory, apiFactory, firebaseFactory, $location, $routeParams, players) {
+  .controller('juxtaCtrl', function($scope, authFactory, apiFactory, firebaseFactory, $location, $routeParams, players, playernews) {
     // console.log('juxtaCtrl firing')
 
   // ______ set variables ______
@@ -7,6 +7,7 @@ app
     $scope.nameX = $routeParams.paramX // player x name
     $scope.nameY = $routeParams.paramY // player y name
     $scope.week = $routeParams.week
+    $scope.playerNews = playernews
 
 
   // _____ radar/bar chart labels _____
@@ -22,6 +23,18 @@ app
           $scope[output] = $scope.playerList[i]
         }
       }
+    }
+
+    $scope.setPlayerNews = function (input, output) {
+      $scope[output] = []
+      console.log("first result of player news:", $scope.playerNews[0])
+      for (let i = 0; i < $scope.playerNews.length; i++) {
+        if (input === (playernews[i].firstName + " " + playernews[i].lastName)) {
+          console.log("firstName:", playernews[i].firstName)
+          $scope[output].push(playernews[i].body.replace(/&apos;/g, "'").replace(/&quot;/g, '"'))
+        }
+      }
+      console.log('player news:', $scope[output])
     }
 
     $scope.showProjections = function (guy, letter, pos) {
@@ -115,13 +128,15 @@ app
       }
     }
 
-
   // ______ execute functions _______
     $scope.setPlayers('nameX', 'playerX') // define object $scope.playerX
     $scope.setPlayers('nameY', 'playerY') // define object $scope.playerY
 
-    $scope.logoX = `/images/logos/${$scope.playerX.team.Abbreviation}.png`  // set team logos
-    $scope.logoY = `/images/logos/${$scope.playerY.team.Abbreviation}.png`
+    $scope.setPlayerNews($routeParams.paramX, 'newsX')
+    $scope.setPlayerNews($routeParams.paramY, 'newsY')
+
+    $scope.logoX = `../images/logos/${$scope.playerX.team.Abbreviation}.png`  // set team logos
+    $scope.logoY = `../images/logos/${$scope.playerY.team.Abbreviation}.png`
 
     $scope.showProjections($routeParams.paramX, 'projectionsX', 'playerX');  // find playerX projections, set obj to var
     $scope.showProjections($routeParams.paramY, 'projectionsY', 'playerY');  // find playerY projections, set obj to var
@@ -141,6 +156,6 @@ app
 
 
   // _____ materialize stuff _____
+    // $('.carousel').carousel({indicators: true})
     $('.carousel.carousel-slider').carousel({fullWidth: true});
-
   })

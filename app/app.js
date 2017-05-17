@@ -27,11 +27,11 @@ app
         resolve: {
           players: function (apiFactory) {
             return apiFactory.getPlayers()
+          },
+          playernews: function (apiFactory) {
+            return apiFactory.getPlayerNews()
           }
         }
-        //   juxta: function (apiFactory, $route) {
-        //     return
-        //   }
       })
       .when('/profile', {
         controller: "profileCtrl",

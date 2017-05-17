@@ -14,9 +14,10 @@ app
     let getNerdProjections = function (pos, wk) {
       return $http
         // .get(`/data/projectionsQBwk1.json`)
-        // .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/iz33m4ducg4h/${pos}/${wk}/`)
+        // .get(`https://www.fantasyfootballnerd.com/service/weekly-projections/json/${nerd_api_key}/${pos}/${wk}/`)
         .get(`${srvr}/nerdprojections/${pos}/${wk}`)
         .then((res) => {
+          console.log("returned nerd projections:", res.data.Projections)
           return res.data.Projections
         })
     };
@@ -67,6 +68,15 @@ app
           console.log("returned expert rankings:", res.data.players)
           return res.data.players
         })
+    };
+
+    let getPlayerNews = function () {
+      return $http
+        .get(`${srvr}/playernews`)
+        .then((res) => {
+          console.log("returned news:", res.data.news)
+          return res.data.news
+        })
     }
     return {
       getPlayers,
@@ -75,6 +85,7 @@ app
       getNflStats,
       getNflLeaders,
       getSchedule,
-      getExpertRankings
+      getExpertRankings,
+      getPlayerNews
     }
   })
