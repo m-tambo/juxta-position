@@ -96,6 +96,7 @@ app
             }
           })
           .then(() => {
+            console.log("expertRankX and expertRankY:", $scope.expertRankX, $scope.expertRankY)
             $scope[avg] = Math.floor(($scope[exp].reduce( ( acc, cur ) => acc + cur, 0 ))/5)
           })
       }

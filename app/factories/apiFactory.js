@@ -1,7 +1,7 @@
 app
   .factory('apiFactory', function($http) {
 
-    const srvr = `http://localhost:3030` // `http://juxta-proxy.herokuapp.com` //
+    const srvr = `http://localhost:4040` //`http://juxta-proxy.herokuapp.com` //
 
     let getPlayers = function () {
       return $http
@@ -25,9 +25,10 @@ app
     let getNerdRankings = function (pos, wk) {
       return $http
         // .get(`/data/rankingsWRweek2.json`)
-        // .get(`https://www.fantasyfootballnerd.com/service/weekly-rankings/json/iz33m4ducg4h/${pos}/${wk}/1/`)
+        // .get(`https://www.fantasyfootballnerd.com/service/weekly-rankings/json/${nerd_api_key}/${pos}/${wk}/1/`)
         .get(`${srvr}/nerdrankings/${pos}/${wk}`)
         .then((res) => {
+          console.log(`returned nerd rankings`, res.data.Rankings)
           return res.data.Rankings
         })
     };
@@ -38,6 +39,7 @@ app
         // .get(`http://api.fantasy.nfl.com/v1/players/stats?statType=seasonStats&season=2016&week=${wk}&format=json`)
         .get(`${srvr}/weekstats/${wk}`)
         .then((res) => {
+          console.log("returned stats for the week:", res.data.players)
           return res.data.players
         })
       };
@@ -53,7 +55,7 @@ app
 
     let getSchedule = function () {
       return $http
-        // .get('https://www.fantasyfootballnerd.com/service/schedule/json/iz33m4ducg4h/')
+        // .get('https://www.fantasyfootballnerd.com/service/schedule/json/${nerd_api_key}/')
         .get('/data/schedule.json')
         .then((res) => {
           return res.data.Schedule
