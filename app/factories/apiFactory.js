@@ -1,7 +1,7 @@
 app
   .factory('apiFactory', function($http) {
 
-    const srvr = `http://localhost:4040` //`http://juxta-proxy.herokuapp.com` //
+    const srvr = `http://juxta-proxy.herokuapp.com` //`http://localhost:4040` //
 
     let getPlayers = function () {
       return $http
