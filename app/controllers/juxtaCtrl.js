@@ -27,24 +27,19 @@ app
 
     $scope.setPlayerNews = function (input, output) {
       $scope[output] = []
-      console.log("first result of player news:", $scope.playerNews[0])
       for (let i = 0; i < $scope.playerNews.length; i++) {
         if (input === (playernews[i].firstName + " " + playernews[i].lastName)) {
-          console.log("firstName:", playernews[i].firstName)
           $scope[output].push(playernews[i].body.replace(/&apos;/g, "'").replace(/&quot;/g, '"'))
         }
       }
-      console.log('player news:', $scope[output])
     }
 
     $scope.showProjections = function (guy, letter, pos) {
       apiFactory.getNerdProjections($scope[pos].player.Position, $scope.week)
         .then((projections) => {
-          // console.log(projections)
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === guy) {   // find matching player
               $scope[letter] = projections[i]
-              // console.log($scope[letter])
             }
           }
         })
@@ -96,7 +91,6 @@ app
             }
           })
           .then(() => {
-            console.log("expertRankX and expertRankY:", $scope.expertRankX, $scope.expertRankY)
             $scope[avg] = Math.floor(($scope[exp].reduce( ( acc, cur ) => acc + cur, 0 ))/5)
           })
       }
