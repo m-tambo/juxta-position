@@ -5,7 +5,7 @@ app
 
     const getPlayers = function () {
       return $http
-        .get('/data/nflPlayerList.json')
+        .get('data/nflPlayerList.json')
         .then(res => res.data.players)
     };
 
@@ -35,7 +35,7 @@ app
 
     const getSchedule = function () {
       return $http
-        .get('/data/schedule.json')
+        .get('data/schedule.json')
         .then(res => res.data.Schedule)
     };
 

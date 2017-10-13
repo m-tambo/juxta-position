@@ -4,7 +4,7 @@ dir
   .directive('navbar', function() {
     return {
       restrict: "E",  // defines this directive as the element <navbar>
-      templateUrl: "/app/partials/navbar.html",
+      templateUrl: "app/partials/navbar.html",
       controller: function($scope, authFactory, $location) {
         // console.log('navbar controller firing')
 

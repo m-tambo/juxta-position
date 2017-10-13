@@ -14,7 +14,7 @@ app
     $routeProvider
       .when('/main', {
         controller: "mainCtrl",
-        templateUrl: "/app/partials/main.html",
+        templateUrl: "app/partials/main.html",
         resolve: {
           players: function (apiFactory) {
             return apiFactory.getPlayers()
@@ -23,7 +23,7 @@ app
       })
       .when('/juxta/:paramX/:paramY/:week', {
         controller: "juxtaCtrl",
-        templateUrl: "/app/partials/juxta.html",
+        templateUrl: "app/partials/juxta.html",
         resolve: {
           players: function (apiFactory) {
             return apiFactory.getPlayers()
@@ -35,7 +35,7 @@ app
       })
       .when('/profile', {
         controller: "profileCtrl",
-        templateUrl: "/app/partials/profile.html",
+        templateUrl: "app/partials/profile.html",
         resolve: {
           user (authFactory, $location) {
             return authFactory
@@ -47,7 +47,7 @@ app
       })
       .when('/login', {
         controller: "loginCtrl",
-        templateUrl: "/app/partials/login.html"
+        templateUrl: "app/partials/login.html"
         // resolve:
 
       })

@@ -138,7 +138,7 @@ form {
 
 /* background */
 .foot-image {
-  background-image: url('/images/public-pics/leap.jpg');
+  background-image: url('../images/public-pics/leap.jpg');
   background-size: cover;
   margin: 2% 0;
   padding: 1% 1% 25% 1%;
