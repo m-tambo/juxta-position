@@ -1,6 +1,5 @@
 app
   .controller('juxtaCtrl', function($scope, authFactory, apiFactory, firebaseFactory, $location, $routeParams, players, playernews) {
-    // console.log('juxtaCtrl firing')
 
   // ______ set variables ______
     $scope.playerList = players  // full list of nfl players
