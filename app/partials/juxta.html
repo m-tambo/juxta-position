@@ -10,7 +10,7 @@
         <div class="center card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
             <img src="{{logoX}}">  <!-- team logo -->
-            <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
+            <h5 class="text-darken-6">{{playerX.position}}, {{playerX.teamAbbr}}</h5>
             <!-- <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5> -->
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -27,7 +27,7 @@
         <div class="center card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
             <img src="{{logoY}}">  <!-- team logo -->
-            <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
+            <h5 class="text-darken-6">{{playerY.position}}, {{playerY.teamAbbr}}</h5>
             <!-- <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5> -->
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -44,15 +44,6 @@
 
     <!-- _____ CAROUSEL _____ -->
   <div class="row carousel carousel-slider center" data-indicators="true">
-
-        <!-- ______ bar chart ______ -->
-    <div class="carousel-item orange lighten-4" href="#one!">
-      <div class="chart col s10 offset-s1">
-        <h4>Projected Points</h4>
-        <canvas id="bar" class="chart chart-bar" chart-data="barData" chart-labels="barLabels" chart-series="series">
-        </canvas>
-      </div>
-    </div> <!-- ______ end of bar chart ______ -->
 
         <!-- ______ recent news ______ -->
     <div class="carousel-item orange lighten-4" href="#two!">
@@ -72,6 +63,15 @@
           </div>
         </div>
     </div> <!-- ______ end of recent news ______ -->
+
+        <!-- ______ bar chart ______ -->
+    <div class="carousel-item orange lighten-4" href="#one!">
+      <div class="chart col s10 offset-s1">
+        <h4>Projected Points</h4>
+        <canvas id="bar" class="chart chart-bar" chart-data="barData" chart-labels="barLabels" chart-series="series">
+        </canvas>
+      </div>
+    </div> <!-- ______ end of bar chart ______ -->
 
             <!-- ______ experts table ______ -->
     <div class="table row container carousel-item orange lighten-4" href="#three!">
