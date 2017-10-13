@@ -10,7 +10,7 @@
         <div class="center card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameX}}<i class="material-icons right">more_vert</i></span>
             <img src="{{logoX}}">  <!-- team logo -->
-            <p class="text-darken-6">{{playerX.player.Position}}, {{playerX.team.City}} {{playerX.team.Name}}</p>
+            <h5 class="text-darken-6">{{playerX.position}}, {{playerX.teamAbbr}}</h5>
             <!-- <h5 class="text-darken-6">Position Rank: {{positionXrank}}</h5> -->
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -27,7 +27,7 @@
         <div class="center card-content">
             <span class="card-title activator grey-text text-darken-2">{{nameY}}<i class="material-icons right">more_vert</i></span>
             <img src="{{logoY}}">  <!-- team logo -->
-            <p class="text-darken-6">{{playerY.player.Position}}, {{playerY.team.City}} {{playerY.team.Name}}</p>
+            <h5 class="text-darken-6">{{playerY.position}}, {{playerY.teamAbbr}}</h5>
             <!-- <h5 class="text-darken-6">Position Rank: {{positionYrank}}</h5> -->
               <!-- <p><a href="#">This is a link</a></p> -->
         </div>
@@ -42,24 +42,36 @@
 
   <h4 class="center">Week {{week}}</h4>
 
+    <!-- _____ CAROUSEL _____ -->
   <div class="row carousel carousel-slider center" data-indicators="true">
-        <!-- ______ radar chart ______ -->
-    <div class="carousel-item orange lighten-4" href="#one!">
-      <div class="chart col s6 offset-s3">
-        <h4>Projected Points Range</h4>
-        <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="options" chart-series="series" chart-labels="radarLabels">
-        </canvas>
-      </div>
-    </div>
 
-          <!-- ______ bar chart ______ -->
+        <!-- ______ recent news ______ -->
     <div class="carousel-item orange lighten-4" href="#two!">
+     <h4 class="recent-news-div">Recent News:</h4>
+        <div class="card news-card col s4 offset-s1">
+          <P>{{nameX}}</P>
+          <div ng-repeat="item in newsX">
+            <hr />
+            <p>{{item}}</p>
+          </div>
+        </div>
+        <div class="card news-card col s4 offset-s2">
+          <P>{{nameY}}</P>
+          <div ng-repeat="item in newsY">
+            <hr />
+            <p>{{item}}</p>
+          </div>
+        </div>
+    </div> <!-- ______ end of recent news ______ -->
+
+        <!-- ______ bar chart ______ -->
+    <div class="carousel-item orange lighten-4" href="#one!">
       <div class="chart col s10 offset-s1">
         <h4>Projected Points</h4>
         <canvas id="bar" class="chart chart-bar" chart-data="barData" chart-labels="barLabels" chart-series="series">
         </canvas>
       </div>
-    </div>
+    </div> <!-- ______ end of bar chart ______ -->
 
             <!-- ______ experts table ______ -->
     <div class="table row container carousel-item orange lighten-4" href="#three!">
@@ -138,6 +150,16 @@
           </tbody>
         </table>
     </div>    <!-- ______ end of comparison table ______ -->
+
+        <!-- ______ radar chart ______ -->
+    <div class="carousel-item orange lighten-4" href="#five!">
+      <div class="chart col s6 offset-s3">
+        <h4>Projected Points Range</h4>
+        <canvas id="radar" class="chart chart-radar" chart-data="radarData" chart-options="options" chart-series="series" chart-labels="radarLabels">
+        </canvas>
+      </div>
+    </div> <!-- ______ end of radar chart ______ -->
+
   </div>  <!-- ______ end of carousel ______ -->
 
     <!-- ______ player choice buttons _____ -->

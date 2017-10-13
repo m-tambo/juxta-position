@@ -1,7 +1,7 @@
 # JuxtaPosition
 A side-by-side player comparison tool for fantasy football enthusiasts.
 
-https://m-tambo.github.io/juxta-position
+[JuxtaPosition](http://m-tambo.com/juxta-position)
 
 ## Problem
 It's Sunday morning. The games are about to start. You *need* to win this head-to-head matchup against your friend/co-worker/annoying roommate, so you can be granted an entire week's worth of bragging rights. It comes down to this one decision... do you start Wide Receiver A or Wide Receiver B? Running Back 1 or Running Back 2? Tight End X or Tight End Y?

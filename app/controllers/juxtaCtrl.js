@@ -1,12 +1,12 @@
 app
-  .controller('juxtaCtrl', function($scope, authFactory, apiFactory, firebaseFactory, $location, $routeParams, players) {
-    // console.log('juxtaCtrl firing')
+  .controller('juxtaCtrl', function($scope, authFactory, apiFactory, firebaseFactory, $location, $routeParams, players, playernews) {
 
   // ______ set variables ______
     $scope.playerList = players  // full list of nfl players
     $scope.nameX = $routeParams.paramX // player x name
     $scope.nameY = $routeParams.paramY // player y name
     $scope.week = $routeParams.week
+    $scope.playerNews = playernews
 
 
   // _____ radar/bar chart labels _____
@@ -16,30 +16,37 @@ app
 
 
   // _______ define functions ______
-    $scope.setPlayers = function (input, output) { // find input player in playerList, set player object to output
-      for (let i = 0; i < $scope.playerList.length; i++) {
-        if ($scope[input] === ($scope.playerList[i].player.FirstName + " " + $scope.playerList[i].player.LastName)) {
+    setPlayers = function (input, output) { // find input player in playerList, set player object to output
+      for (let i = 0; i < players.length; i++) {
+        if ($scope[input] === ($scope.playerList[i].firstName + " " + $scope.playerList[i].lastName)) {
           $scope[output] = $scope.playerList[i]
         }
       }
     }
 
-    $scope.showProjections = function (guy, letter, pos) {
-      apiFactory.getNerdProjections($scope[pos].player.Position, $scope.week)
+    setPlayerNews = function (input, output) {
+      $scope[output] = []
+      for (let i = 0; i < $scope.playerNews.length; i++) {
+        if (input === (playernews[i].firstName + " " + playernews[i].lastName)) {
+          $scope[output].push(playernews[i].body.replace(/&apos;/g, "'").replace(/&quot;/g, '"'))
+        }
+      }
+    }
+
+    showProjections = function (guy, letter, pos) {
+      apiFactory.getNerdProjections($scope[pos].position, $scope.week)
         .then((projections) => {
-          // console.log(projections)
           for (i = 0; i < projections.length; i++) {
             if (projections[i].displayName === guy) {   // find matching player
               $scope[letter] = projections[i]
-              // console.log($scope[letter])
             }
           }
         })
     }
 
-    $scope.showRankings = function (dude, letter, pos, posit) {
+    showRankings = function (dude, letter, pos, posit) {
       $scope.radarData = []
-      apiFactory.getNerdRankings($scope[posit].player.Position, $scope.week)
+      apiFactory.getNerdRankings($scope[posit].position, $scope.week)
         .then((rankings) => {
           for (j = 0; j < rankings.length; j++) {
             if (rankings[j].name === dude) {   // find matching player
@@ -52,7 +59,7 @@ app
         })
     }
 
-    $scope.showStats = function (guy, seasonProj, season, weekProj, week) {
+    showStats = function (guy, seasonProj, season, weekProj, week) {
       apiFactory.getNflStats($scope.week)
         .then((stats) => {
           for (k = 0; k < stats.length; k++) {
@@ -71,7 +78,7 @@ app
         })
     }
 
-    $scope.showExperts = function (guy, week, position, exp, avg) {
+    showExperts = function (guy, week, position, exp, avg) {
       $scope[exp] = []
       for (i = 1; i < 6; i++) {
         apiFactory.getExpertRankings(week, position, i)
@@ -89,7 +96,7 @@ app
     }
 
 
-    $scope.getOpponents = function (team, opp) {
+    getOpponents = function (team, opp) {
       apiFactory.getSchedule()
       .then((schedule) =>  {
         for (i = 0; i < schedule.length; i++) {
@@ -115,31 +122,34 @@ app
       }
     }
 
-
   // ______ execute functions _______
-    $scope.setPlayers('nameX', 'playerX') // define object $scope.playerX
-    $scope.setPlayers('nameY', 'playerY') // define object $scope.playerY
+    setPlayers('nameX', 'playerX') // define object $scope.playerX
+    setPlayers('nameY', 'playerY') // define object $scope.playerY
 
-    $scope.logoX = `/images/logos/${$scope.playerX.team.Abbreviation}.png`  // set team logos
-    $scope.logoY = `/images/logos/${$scope.playerY.team.Abbreviation}.png`
+    $scope.logoX = `../images/logos/${$scope.playerX.teamAbbr}.png`  // set team logos
+    $scope.logoY = `../images/logos/${$scope.playerY.teamAbbr}.png`
 
-    $scope.showProjections($routeParams.paramX, 'projectionsX', 'playerX');  // find playerX projections, set obj to var
-    $scope.showProjections($routeParams.paramY, 'projectionsY', 'playerY');  // find playerY projections, set obj to var
+    showProjections($routeParams.paramX, 'projectionsX', 'playerX');  // find playerX projections, set obj to var
+    showProjections($routeParams.paramY, 'projectionsY', 'playerY');  // find playerY projections, set obj to var
 
-    $scope.showRankings($routeParams.paramX, 'rankingsX', 'positionXrank', 'playerX')  // grab rankings
-    $scope.showRankings($routeParams.paramY, 'rankingsY', 'positionYrank', 'playerY')
+    setPlayerNews($routeParams.paramX, 'newsX')
+    setPlayerNews($routeParams.paramY, 'newsY')
 
-    $scope.showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
-    $scope.showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
+    showRankings($routeParams.paramX, 'rankingsX', 'positionXrank', 'playerX')  // grab rankings
+    showRankings($routeParams.paramY, 'rankingsY', 'positionYrank', 'playerY')
 
-    $scope.showExperts($scope.nameX, $scope.week, $scope.playerX.player.Position, 'expertRankX', 'avgRankX')
-    $scope.showExperts($scope.nameY, $scope.week, $scope.playerY.player.Position, 'expertRankY', 'avgRankY')
+    showStats($routeParams.paramX, 'seasonProjectedX', 'seasonPtsX', 'weekProjectedX', 'weekPtsX')
+    showStats($routeParams.paramY, 'seasonProjectedY', 'seasonPtsY', 'weekProjectedY', 'weekPtsY')
 
-    $scope.getOpponents($scope.playerX.team.Abbreviation, 'opponentX')  // set opponent to $scope.opponentX
-    $scope.getOpponents($scope.playerY.team.Abbreviation, 'opponentY')  // set opponent to $scope.opponentY
+
+    showExperts($scope.nameX, $scope.week, $scope.playerX.position, 'expertRankX', 'avgRankX')
+    showExperts($scope.nameY, $scope.week, $scope.playerY.position, 'expertRankY', 'avgRankY')
+
+    getOpponents($scope.playerX.teamAbbr, 'opponentX')  // set opponent to $scope.opponentX
+    getOpponents($scope.playerY.teamAbbr, 'opponentY')  // set opponent to $scope.opponentY
 
 
   // _____ materialize stuff _____
+    // $('.carousel').carousel({indicators: true})
     $('.carousel.carousel-slider').carousel({fullWidth: true});
-
   })
